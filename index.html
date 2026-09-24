@@ -1,0 +1,1252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RosyPics — Premium Digital Assets</title>
+<meta name="description" content="RosyPics — premium 4K photos and professional colour grading.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#000;
+  --nav:#111;
+  --panel:#191919;
+  --panel2:#151515;
+  --text:#f7f7f7;
+  --muted:#c9c9c9;
+  --line:#292929;
+  --yellow:#ffb800;
+  --green:#0d5b1b;
+  --green2:#0b6d18;
+  --blue:#1687ff;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+
+body:before{
+  content:"";
+  position:fixed;
+  width:550px;height:550px;
+  left:-260px;top:220px;
+  background:radial-gradient(circle,rgba(255,184,0,.07),transparent 65%);
+  pointer-events:none;
+  filter:blur(10px);
+  animation:orb 9s ease-in-out infinite alternate;
+}
+@keyframes orb{to{transform:translate(180px,-100px) scale(1.15)}}
+
+.nav{
+  height:99px;
+  background:#111;
+  border-bottom:1px solid #191919;
+  display:flex;
+  align-items:center;
+  padding:0 22px;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.logo{
+  width:74px;
+  font-size:62px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-6px;
+  user-select:none;
+}
+.logo .r{color:#fff}
+.logo .p{color:var(--yellow)}
+.nav-left{display:flex;align-items:center;gap:55px}
+.nav-links{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:66px;
+}
+.nav-link{
+  color:#c9c9c9;
+  text-decoration:none;
+  font-size:24px;
+  border:0;
+  background:none;
+  padding:10px 0;
+  transition:color .2s ease,transform .2s ease;
+}
+.nav-link:hover{color:#fff;transform:translateY(-1px)}
+.nav-link.active{font-weight:800;color:#fff}
+
+.page{
+  width:min(1240px,calc(100% - 56px));
+  margin:0 auto;
+  padding:58px 0 96px;
+}
+.home-shell{width:100%;}
+.hero{max-width:760px}
+.hero h1{
+  font-size:72px;
+  margin:0 0 8px;
+  letter-spacing:-3px;
+  line-height:1;
+}
+.yellow{color:var(--yellow)}
+.hero p{
+  font-size:28px;
+  margin:0;
+  letter-spacing:-.7px;
+  color:#e7e7e7;
+}
+.section-title{
+  font-size:39px;
+  margin:78px 0 40px;
+  letter-spacing:-1.2px;
+}
+.product-row{
+  display:grid;
+  grid-template-columns:420px minmax(330px,1fr) 250px;
+  gap:42px;
+  align-items:center;
+}
+
+.preview-watermark{position:relative;overflow:hidden;border-radius:inherit;display:block;background:#070707}
+.preview-watermark::after{content:'RosyPics';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-24deg);font-size:clamp(40px,5.2vw,76px);font-weight:900;letter-spacing:1px;color:rgba(255,255,255,.30);text-shadow:0 2px 8px rgba(0,0,0,.48);pointer-events:none;user-select:none;white-space:nowrap;z-index:2}
+.preview-watermark img{display:block}
+.main-preview-wrap{width:420px;height:420px;border-radius:18px;flex:0 0 auto;box-shadow:0 24px 70px rgba(0,0,0,.34),0 0 0 1px rgba(255,255,255,.07)}
+.main-preview-wrap .main-photo{width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.product-preview-wrap{width:100%;aspect-ratio:1/1}
+.product-preview-wrap img{width:100%;height:100%;object-fit:cover;border-radius:0}
+.overview-preview-wrap{position:relative}
+.overview-preview-wrap .overview-image{display:block}
+.main-photo{
+  width:395px;height:405px;
+  object-fit:cover;
+  border-radius:9px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.03);
+  transition:transform .35s ease,box-shadow .35s ease,filter .35s ease;
+}
+.main-photo:hover{
+  transform:scale(1.015);
+  box-shadow:0 20px 70px rgba(0,0,0,.55);
+  filter:saturate(1.04);
+}
+.product-info{min-width:0}
+.product-info h2{
+  font-size:46px;
+  margin:0 0 12px;
+  letter-spacing:-1.7px;
+}
+.product-info .details{
+  font-size:27px;
+  line-height:1.28;
+  color:#ededed;
+}
+.thumbs{
+  display:flex;
+  gap:56px;
+  margin-top:62px;
+}
+.thumb{
+  text-align:center;
+  font-size:23px;
+  color:#f2f2f2;
+}
+.thumb img{
+  width:58px;height:58px;
+  border-radius:50%;
+  object-fit:cover;
+  margin:0 auto 6px;
+  border:1px solid rgba(255,255,255,.08);
+}
+.price-card{
+  width:250px;
+  min-height:350px;
+  background:#1b1b1b;
+  border:1px solid #393939;
+  border-radius:46px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 22px 70px rgba(0,0,0,.28);
+  transition:transform .3s ease,border-color .3s ease;
+}
+.price-card:hover{transform:translateY(-6px);border-color:#505050}
+.price{
+  font-size:66px;
+  font-weight:800;
+  letter-spacing:-3px;
+}
+.underline{
+  width:151px;height:4px;
+  background:#5e5e5e;
+  border-radius:20px;
+  margin:10px 0 72px;
+}
+.green-btn{
+  border:0;
+  color:white;
+  background:linear-gradient(180deg,#0e5d1b,#0b5016);
+  border-radius:45px;
+  padding:17px 55px;
+  min-width:173px;
+  font-weight:800;
+  font-size:31px;
+  transition:transform .2s ease,filter .2s ease,box-shadow .2s ease;
+}
+.green-btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  filter:brightness(1.12);
+  box-shadow:0 13px 30px rgba(0,100,20,.25);
+}
+.green-btn:active{transform:scale(.98)}
+
+.subpage h1{
+  font-size:58px;
+  letter-spacing:-2.5px;
+  margin:0 0 8px;
+}
+.subpage .subtitle{font-size:24px;margin:0 0 74px}
+.cart-nav{
+  color:#fff; background:#1a1a1a; border:1px solid #333; border-radius:999px;
+  font-size:19px; padding:9px 16px; margin-left:-32px;
+  transition:.25s ease;
+}
+.cart-nav:hover{border-color:#555;transform:translateY(-1px);background:#202020}
+.cart-nav span{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 5px;margin-left:5px;border-radius:50%;background:#ffb800;color:#111;font-size:13px;font-weight:800}
+.cg-grid{
+  display:grid;
+  grid-template-columns:255px 255px minmax(280px,1fr) 190px;
+  gap:12px 24px;
+  align-items:start;
+}
+.compare h3{
+  text-align:center;
+  font-size:35px;
+  margin:0 0 12px;
+}
+.compare img{
+  width:255px;height:405px;
+  object-fit:contain;
+  background:#050505;
+  border-radius:2px;
+}
+.cg-side{grid-column:3;grid-row:1 / span 2;padding:0 8px}
+.styles{
+  display:flex;
+  justify-content:flex-start;
+  gap:44px;
+  align-items:flex-start;
+  padding-top:1px;
+  margin-bottom:38px;
+}
+.style-choice{
+  text-align:center;font-size:20px;color:#ddd;border:0;background:transparent;padding:0;
+  min-width:72px;transition:transform .2s ease,color .2s ease;
+}
+.style-choice:hover{transform:translateY(-3px);color:#fff}
+.style-choice img{
+  width:58px;height:58px;border-radius:50%;object-fit:cover;margin:0 auto 5px;
+  border:2px solid transparent;display:block;
+}
+.style-choice.selected img{border-color:#fff}
+.style-choice.selected{font-weight:800;color:#fff}
+.cg-copy{padding-left:0}
+.cg-copy h2{font-size:24px;margin:0 0 28px}
+.cg-copy p{font-size:22px;line-height:1.25;margin:0;max-width:480px}
+.cg-price{
+  grid-column:4;grid-row:1;
+  align-self:start;justify-self:end;
+  margin-top:0;
+  background:#1b1b1b;
+  border:1px solid #3b3b3b;
+  border-radius:45px;
+  padding:14px 30px;
+  font-size:37px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.cg-action{grid-column:3/5;grid-row:3;text-align:left;margin-top:28px;padding-left:8px}
+.cg-action .green-btn{font-size:24px;padding:14px 44px}
+
+.purchase-page h1,.thanks-page h1{
+  font-size:58px;letter-spacing:-2px;margin:0 0 7px
+}
+.purchase-page .subtitle,.thanks-page .subtitle{font-size:24px;margin:0}
+.form-label{display:block;font-size:23px;margin:72px 0 16px}
+.email-input{
+  width:min(635px,100%);
+  background:#1d1d1d;
+  border:1px solid #3c3c3c;
+  border-radius:22px;
+  padding:17px 16px;
+  color:#fff;
+  outline:none;
+  font-size:17px;
+}
+.email-input:focus{border-color:#777;box-shadow:0 0 0 4px rgba(255,255,255,.04)}
+
+.purchase-layout{
+  display:grid;
+  grid-template-columns:1fr 293px;
+  gap:80px;
+  margin-top:0;
+}
+.uploads{
+  display:flex;gap:34px;
+  margin-top:105px;
+}
+.upload-col h2{font-size:31px;margin:0 0 18px}
+.upload-box{
+  width:240px;height:198px;
+  background:#1a1a1a;
+  border:1px solid #3a3a3a;
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#eee;
+  font-size:22px;
+  transition:border-color .2s,transform .2s,background .2s;
+}
+.upload-box:hover,.upload-box.drag{
+  border-color:#777;
+  transform:translateY(-3px);
+  background:#202020;
+}
+.upload-box strong{color:#1687ff}
+.upload-box input{display:none}
+.summary{
+  margin-top:65px;
+  background:#1b1b1b;
+  border:1px solid #3b3b3b;
+  border-radius:22px;
+  min-height:410px;
+  padding:42px 42px 30px;
+  display:flex;
+  flex-direction:column;
+}
+.summary-total{font-size:52px;font-weight:800;margin-bottom:46px}
+.summary-items{display:flex;gap:25px}
+.summary-item{text-align:center;font-size:15px}
+.summary-item img{width:55px;height:55px;border-radius:50%;object-fit:cover;margin:auto auto 6px}
+.summary-buy{margin-top:auto;width:100%;font-size:22px;padding:14px}
+
+.thanks-card{
+  margin-top:40px;
+  background:#151515;
+  border:1px solid #393939;
+  border-radius:20px;
+  min-height:470px;
+  padding:50px 32px;
+  position:relative;
+  overflow:hidden;
+}
+.thanks-card h2{font-size:37px;margin:0 0 12px}
+.thanks-card p{font-size:23px;margin:0}
+.cart-graphic{
+  position:absolute;right:80px;top:70px;width:390px;height:290px;
+  opacity:.72;
+}
+.cart-frame{
+  position:absolute;left:25px;top:45px;width:285px;height:190px;
+  border-left:10px solid #3c3c3c;border-bottom:10px solid #3c3c3c;
+  transform:skew(-20deg);border-radius:12px;
+}
+.cart-handle{
+  position:absolute;left:285px;top:0;width:130px;height:18px;background:#3c3c3c;border-radius:20px;
+  transform:rotate(1deg);
+}
+.cart-wheel{position:absolute;bottom:0;width:50px;height:50px;border-radius:50%;background:#282828;border:1px solid #444}
+.cart-wheel.one{left:80px}.cart-wheel.two{left:235px}
+.thanks-items{position:absolute;right:145px;top:170px;display:flex;gap:65px}
+.thanks-items div{text-align:center;font-size:20px;font-weight:800}
+.thanks-items img{width:55px;height:55px;border-radius:50%;object-fit:cover;margin:auto auto 7px}
+.view-account{position:absolute;left:38px;bottom:30px;font-size:18px;font-weight:700}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.gallery-card{
+  background:#151515;border:1px solid #292929;border-radius:18px;overflow:hidden;
+  transition:transform .3s,border-color .3s;
+}
+.gallery-card:hover{transform:translateY(-5px);border-color:#555}
+.gallery-card img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.gallery-card div{padding:16px;font-size:18px;font-weight:700}
+.owned-card div{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.download-btn{display:inline-block;background:#0d5b1b;color:#fff;text-decoration:none;border-radius:999px;padding:10px 16px;font-weight:800;transition:.2s}
+.download-btn:hover{filter:brightness(1.15);transform:translateY(-2px)}
+.buy-btn-small{font-size:18px;padding:12px 32px;min-width:120px}
+.download-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.owned-gallery{grid-template-columns:minmax(320px,620px)}
+.account-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:35px}
+.account-card{background:#151515;border:1px solid #292929;border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.account-label{color:#888;font-size:15px;text-transform:uppercase;letter-spacing:1px}
+.account-card strong{font-size:24px}.account-card p{color:#999;margin:0}.account-link{align-self:flex-start;margin-top:10px;border:0;background:transparent;color:#fff;font-weight:800;padding:0;cursor:pointer}.account-link:hover{text-decoration:underline}
+.orders-heading{font-size:32px;margin:58px 0 22px}
+.orders-list{display:flex;flex-direction:column;gap:16px}.order-card{background:#151515;border:1px solid #292929;border-radius:18px;padding:22px}.order-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292929;padding-bottom:16px;margin-bottom:14px}.order-top>strong{font-size:26px}.order-id{font-weight:800;font-size:20px;margin-right:12px}.order-date{color:#888;font-size:14px}.order-items{display:flex;flex-direction:column;gap:12px}.order-item{display:grid;grid-template-columns:58px 1fr auto;gap:14px;align-items:center}.order-item img{width:58px;height:58px;border-radius:12px;object-fit:cover}.order-item b{font-size:17px}.order-item p{margin:3px 0 0;color:#999}.status{font-size:13px;font-weight:800;padding:7px 11px;border-radius:999px}.status.complete{background:#0d5b1b;color:#fff}.status.pending{background:#2a2a2a;color:#ddd}
+.product-card h2{margin:0 0 5px;font-size:25px}
+.product-card p{margin:0 0 10px;color:#aaa;font-weight:500}
+.product-card>div{display:grid;grid-template-columns:1fr auto;gap:8px 15px;align-items:center}
+.product-card .green-btn{grid-column:1/-1;font-size:18px;padding:12px 20px;min-width:0}
+.cart-list{display:flex;flex-direction:column;gap:14px;margin-top:42px}
+.cart-item{display:grid;grid-template-columns:90px 1fr auto auto;align-items:center;gap:22px;background:#151515;border:1px solid #292929;border-radius:18px;padding:16px 20px;transition:.25s ease}
+.cart-item:hover{border-color:#454545;transform:translateY(-2px)}
+.cart-item>img{width:90px;height:90px;border-radius:12px;object-fit:cover}
+.cart-item-media{width:90px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:center}.cart-item-media>img{width:42px;height:42px;border-radius:9px;object-fit:cover}.cart-item-media>img:only-child{width:90px;height:90px;border-radius:12px}
+.cart-item-info h2{margin:0 0 6px;font-size:22px}
+.cart-item-info p{margin:0;color:#999;line-height:1.35}
+.cart-item-price{font-size:26px;font-weight:800}
+.remove-btn{border:0;background:transparent;color:#999;font-weight:700;padding:10px}.remove-btn:hover{color:#fff}
+.cart-footer{margin-top:25px;display:flex;align-items:center;justify-content:space-between;background:#151515;border:1px solid #292929;border-radius:20px;padding:20px 24px}
+.cart-footer div{display:flex;flex-direction:column;gap:3px}.cart-footer span{color:#999}.cart-footer strong{font-size:34px}
+.empty{
+  padding:70px 30px;text-align:center;color:#888;border:1px dashed #333;border-radius:20px;
+}
+
+.toast{
+  position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);
+  background:#1e1e1e;border:1px solid #454545;border-radius:14px;
+  padding:14px 22px;opacity:0;pointer-events:none;z-index:100;
+  transition:opacity .25s,transform .25s;box-shadow:0 15px 50px rgba(0,0,0,.5)
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.page.enter{animation:pageIn .45s ease both}
+@keyframes pageIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+
+
+.gift-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:30px}
+.gift-card{background:#151515;border:1px solid #292929;border-radius:20px;padding:24px;min-height:270px;display:flex;flex-direction:column;justify-content:space-between;transition:.3s ease}
+.gift-card:hover{transform:translateY(-5px);border-color:#555;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.gift-visual{height:125px;border-radius:15px;background:linear-gradient(135deg,#171717,#252525);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:800;color:var(--yellow);border:1px solid #333}
+.gift-card h2{font-size:26px;margin:16px 0 5px}.gift-card p{color:#aaa;margin:0 0 15px}
+.payment-options{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}.payment-option{border:1px solid #3b3b3b;background:#151515;color:#ddd;border-radius:14px;padding:14px 18px;cursor:pointer;transition:.2s}.payment-option.selected{border-color:#fff;color:#fff;background:#202020}.payment-option strong{display:block}.payment-option small{color:#999}
+.gift-code-row{display:flex;gap:10px;max-width:635px;margin-top:20px}.gift-code-input{flex:1;background:#1d1d1d;border:1px solid #3c3c3c;border-radius:16px;padding:15px;color:#fff;outline:none}.gift-code-btn{border:1px solid #444;background:#222;color:#fff;border-radius:16px;padding:0 20px;font-weight:800}.gift-balance{margin-top:10px;color:#aaa}.gift-balance strong{color:#fff}
+.checkout-note{margin-top:12px;color:#aaa;font-size:14px;line-height:1.4}.gift-result{margin-top:15px;padding:15px 17px;background:#102313;border:1px solid #1e6b2d;border-radius:14px;display:none}.gift-result.show{display:block}.gift-result code{font-size:18px;color:#ffb800}
+.overview-switch{display:flex;gap:10px;margin:0 0 18px;flex-wrap:wrap}.overview-switch button{border:1px solid #333;background:#151515;color:#bbb;border-radius:999px;padding:10px 16px;font-weight:800;cursor:pointer;transition:.2s}.overview-switch button:hover{border-color:#666;color:#fff;transform:translateY(-2px)}.overview-switch button.active{background:#222;color:#fff;border-color:#fff}.overview-preview-label{color:#888;font-size:14px;margin:0 0 8px;text-transform:uppercase;letter-spacing:1px}.overview-back{background:none;border:0;color:#aaa;font-size:16px;padding:0;margin-bottom:20px}.overview-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}.overview-image{width:100%;max-height:620px;object-fit:contain;background:#070707;border-radius:18px;border:1px solid #292929}.overview-info h2{font-size:46px;margin:0 0 10px}.overview-price{font-size:38px;font-weight:800;margin:22px 0}.overview-info p{font-size:20px;line-height:1.55;color:#ccc}.overview-points{margin:28px 0;padding-left:20px;color:#ccc;font-size:18px;line-height:1.8}
+.bundle-card{position:relative;background:#151515;border:1px solid #3a3a3a;border-radius:20px;overflow:hidden;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;text-align:left;color:#fff}
+.bundle-card:hover{transform:translateY(-6px);border-color:#666;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.bundle-card .bundle-cover{position:relative;aspect-ratio:16/10;overflow:hidden;background:#070707}
+.bundle-card .bundle-cover img{width:100%;height:100%;object-fit:cover}
+.bundle-card .bundle-cover:after,.bundle-gallery .bundle-shot:after{content:'RosyPics';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-24deg);font-size:clamp(38px,5vw,64px);font-weight:900;color:rgba(255,255,255,.28);text-shadow:0 2px 8px rgba(0,0,0,.5);pointer-events:none;white-space:nowrap}
+.collector-badge{position:absolute;left:16px;top:16px;z-index:3;background:#ffb800;color:#111;border-radius:999px;padding:8px 13px;font-size:13px;font-weight:900;letter-spacing:.3px;text-transform:uppercase}
+.bundle-card-copy{padding:22px}.bundle-card-copy h2{font-size:28px;margin:0 0 7px}.bundle-card-copy p{color:#aaa;margin:0 0 17px;line-height:1.45}
+.bundle-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px}.bundle-card-price{font-size:30px;font-weight:800}.bundle-card .green-btn{font-size:17px;padding:11px 24px;min-width:0}
+.interested-gallery{display:grid;grid-template-columns:1fr;gap:22px}.interested-preview-card{background:#151515;border:1px solid #2d2d2d;border-radius:20px;padding:16px;overflow:hidden;box-shadow:0 18px 55px rgba(0,0,0,.22)}.interested-preview-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:#ddd}.interested-preview-head strong{color:#ffb800;font-size:14px;text-transform:uppercase;letter-spacing:.8px}.interested-preview{aspect-ratio:3/4;border-radius:14px}.interested-preview img{width:100%;height:100%;object-fit:contain;background:#050505}.interested-switch{display:flex;gap:8px;margin-top:12px}.interested-switch button{flex:1;background:#202020;color:#aaa;border:1px solid #333;border-radius:999px;padding:10px 14px;font-weight:700;transition:.2s}.interested-switch button:hover{color:#fff;border-color:#555}.interested-switch button.active{background:#fff;color:#111;border-color:#fff}.interested-owned-grid .bundle-owned-card img{aspect-ratio:3/4;object-fit:cover}
+.bundle-page .bundle-hero{display:grid;grid-template-columns:1.25fr .9fr;gap:52px;align-items:start;margin-top:30px}
+.bundle-gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bundle-gallery .bundle-shot{position:relative;overflow:hidden;border-radius:18px;background:#080808;border:1px solid #2d2d2d}
+.bundle-gallery .bundle-shot:first-child{grid-column:1/-1}.bundle-gallery img{width:100%;height:100%;object-fit:cover}.bundle-gallery .bundle-shot{aspect-ratio:4/3}
+.bundle-details{background:#151515;border:1px solid #353535;border-radius:24px;padding:32px;position:sticky;top:125px}
+.bundle-kicker{color:#ffb800;font-size:14px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase}.bundle-details h1{font-size:50px;letter-spacing:-2.5px;line-height:1.02;margin:9px 0 14px}
+.bundle-details .lead{font-size:20px;line-height:1.55;color:#ccc;margin:0 0 24px}.bundle-price-row{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:18px 0;border-top:1px solid #292929;border-bottom:1px solid #292929}
+.bundle-price{font-size:48px;font-weight:800;letter-spacing:-2px}.bundle-limited{color:#ffb800;font-weight:800;font-size:14px;text-align:right}
+.bundle-countdown{margin:20px 0;background:#0f0f0f;border:1px solid #303030;border-radius:16px;padding:16px}.bundle-countdown-label{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:1px}
+.bundle-timer{font-size:30px;font-weight:800;letter-spacing:1px;margin-top:4px;font-variant-numeric:tabular-nums}.bundle-features{list-style:none;padding:0;margin:25px 0;display:grid;gap:12px}.bundle-features li{color:#ddd}.bundle-features li:before{content:'✓';color:#ffb800;font-weight:900;margin-right:10px}
+.bundle-buy{width:100%;font-size:20px!important;padding:15px 22px!important}.bundle-note{font-size:13px;color:#777;text-align:center;margin:12px 0 0;line-height:1.4}
+.bundle-back{background:none;border:0;color:#aaa;font-size:16px;padding:0;margin-bottom:5px}.bundle-expired{width:100%;background:#2a2a2a!important;color:#888!important;cursor:not-allowed!important;box-shadow:none!important;transform:none!important;filter:none!important}
+.bundle-my-pics{margin-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:16px}.bundle-owned-card{background:#151515;border:1px solid #292929;border-radius:18px;overflow:hidden}
+.bundle-owned-card img{width:100%;aspect-ratio:4/3;object-fit:cover}.bundle-owned-card .bundle-owned-copy{padding:16px}.bundle-owned-card h3{margin:0 0 5px;font-size:19px}.bundle-owned-card p{margin:0 0 12px;color:#999}
+@media(max-width:900px){.bundle-page .bundle-hero{grid-template-columns:1fr;gap:25px}.bundle-details{position:static}}
+@media(max-width:760px){.bundle-details{padding:24px}.bundle-details h1{font-size:39px}.bundle-gallery{grid-template-columns:1fr}.bundle-gallery .bundle-shot:first-child{grid-column:auto}.bundle-my-pics{grid-template-columns:1fr}.bundle-card-bottom{align-items:flex-start;flex-direction:column}}
+
+@media(max-width:900px){.gift-grid{grid-template-columns:1fr 1fr}.overview-layout{grid-template-columns:1fr}}
+@media(max-width:1050px){
+  .nav-links{gap:30px}
+  .nav-link{font-size:19px}
+  .product-row{grid-template-columns:360px 1fr 230px;gap:28px}
+  .main-preview-wrap{width:360px;height:360px}
+  .main-photo{width:330px;height:340px}
+  .price-card{width:240px}
+  .cg-grid{grid-template-columns:1fr 1fr}
+  .cg-side{grid-column:1/3;grid-row:auto}
+  .cg-copy{grid-column:auto}
+  .cg-price{grid-column:1/3;grid-row:auto;justify-self:start}
+  .cg-action{grid-column:1/3;grid-row:auto}
+}
+@media(max-width:760px){
+  .nav{height:76px;padding:0 15px}
+  .logo{font-size:48px;width:58px}
+  .nav-left{gap:10px}
+  .nav-links{gap:17px}
+  .nav-link{font-size:13px}
+  .page,.home-page{width:min(100% - 30px,600px);padding-top:38px}
+  .hero h1{font-size:50px}
+  .hero p{font-size:20px}
+  .section-title{font-size:30px;margin:50px 0 28px}
+  .product-row{grid-template-columns:1fr;gap:30px}
+  .main-preview-wrap{width:min(100%,520px);height:auto;aspect-ratio:1/1}
+  .main-photo{width:100%;height:auto;aspect-ratio:1/1}
+  .main-preview-wrap{width:100%;height:auto;aspect-ratio:1/1}
+  .product-info h2{font-size:36px}
+  .product-info .details{font-size:22px}
+  .thumbs{margin-top:28px;gap:45px}
+  .price-card{width:100%;min-height:260px;border-radius:30px}
+  .underline{margin-bottom:45px}
+  .subpage h1,.purchase-page h1,.thanks-page h1{font-size:43px}
+  .subpage .subtitle,.purchase-page .subtitle,.thanks-page .subtitle{font-size:18px}
+  .cg-grid{grid-template-columns:1fr 1fr;gap:18px 12px}
+  .compare img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+  .cg-side{grid-column:1/3;grid-row:auto;padding:0}
+  .styles{gap:24px;margin-bottom:28px}
+  .cg-copy{grid-column:auto}
+  .cg-price{grid-column:1/3;justify-self:start;margin-top:0}
+  .cg-action{grid-column:1/3;grid-row:auto;padding-left:0}
+  .purchase-layout{grid-template-columns:1fr;gap:20px}
+  .uploads{margin-top:50px;gap:12px}
+  .upload-box{width:100%;height:170px}
+  .summary{margin-top:0}
+  .gallery{grid-template-columns:1fr}.gift-grid{grid-template-columns:1fr}
+  .cart-nav{font-size:13px;padding:7px 10px;margin-left:-8px}
+  .cart-item{grid-template-columns:70px 1fr auto;gap:12px}.cart-item>img{width:70px;height:70px}.cart-item-media{width:70px}.cart-item-media>img:only-child{width:70px;height:70px}.cart-item-price{grid-column:2;font-size:22px}.remove-btn{grid-column:3;grid-row:1}
+  .cart-footer{gap:15px;align-items:flex-end}.cart-footer strong{font-size:28px}.cart-footer .green-btn{font-size:20px;padding:12px 20px}
+  .account-grid{grid-template-columns:1fr}.order-top{align-items:flex-start;gap:15px}.order-item{grid-template-columns:52px 1fr}.order-item .status{grid-column:2;justify-self:start}.buy-btn-small{font-size:17px;padding:12px 26px;min-width:116px}
+  .thanks-card{min-height:520px}
+  .cart-graphic{right:-120px;top:170px}
+  .thanks-items{right:75px;top:280px}
+}
+
+/* Desktop screenshot / capture deterrents. Browsers cannot guarantee blocking OS-level screenshots. */
+html, body, body *{
+  -webkit-user-select:none !important;
+  user-select:none !important;
+  -webkit-touch-callout:none !important;
+}
+input, textarea{
+  -webkit-user-select:text !important;
+  user-select:text !important;
+}
+@media print{
+  html,body{display:none !important;}
+}
+.capture-protected{}
+/* Blur the actual site layers, NOT <body>. This keeps the protection shield crisp. */
+body.capture-protected > .nav,
+body.capture-protected > #app,
+body.capture-protected > .toast{
+  filter:blur(22px) !important;
+  pointer-events:none !important;
+}
+#captureShield{
+  position:fixed; inset:0; z-index:999999;
+  display:none; align-items:center; justify-content:center;
+  background:#000; color:#fff; text-align:center;
+  padding:30px;
+  font-family:Inter,Arial,sans-serif;
+}
+#captureShield.show{display:flex}
+#captureShield .shieldBox{
+  max-width:620px; padding:34px 40px;
+  border:1px solid #333; border-radius:22px;
+  background:#151515; box-shadow:0 20px 80px rgba(0,0,0,.65);
+}
+#captureShield h2{margin:0 0 10px;font-size:28px}
+#captureShield p{margin:0;color:#aaa;font-size:16px;line-height:1.5}
+
+</style>
+</head>
+
+<body>
+<div id="captureShield" aria-hidden="true">
+  <div class="shieldBox">
+    <h2>Screen capture blocked</h2>
+    <p>RosyPics content is protected. Please return to the page without using a screenshot or capture tool.</p>
+  </div>
+</div>
+
+
+<header class="nav">
+  <div class="nav-left">
+    <div class="logo"><span class="r">R</span><span class="p">P</span></div>
+    <button class="nav-link" data-page="home">Home</button>
+  </div>
+  <nav class="nav-links">
+    <button class="nav-link" data-page="mypics">MyPics</button>
+    <button class="nav-link" data-page="cg">Custom CG</button>
+    <button class="nav-link" data-page="pictures">Pictures</button>
+    <button class="nav-link" data-page="giftshop">Gift Shop</button>
+    <button class="nav-link" data-page="account">Account</button>
+    <button class="cart-nav" data-page="cart" aria-label="Open cart">Cart <span id="cart-count">0</span></button>
+  </nav>
+</header>
+
+<main id="app"></main>
+<div class="toast" id="toast"></div>
+
+<script>
+const IMG={
+  'thumb-pop.jpg': 'images/thumb-pop.jpg',
+  'reference-pop.png': 'images/reference-pop.png',
+  'reference-thanks.png': 'images/reference-thanks.png',
+  'before.jpg': 'images/before.jpg',
+  'reference-vibrant.png': 'images/reference-vibrant.png',
+  'reference-home.png': 'images/reference-home.png',
+  'pop.jpg': 'images/pop.jpg',
+  'vibrant.jpg': 'images/vibrant.jpg',
+  'thumb-raw.jpg': 'images/thumb-raw.jpg',
+  'angry-rosy.jpg': 'images/angry-rosy.jpg',
+  'reference-purchase.png': 'images/reference-purchase.png',
+  'thumb-vibrant.jpg': 'images/thumb-vibrant.jpg',
+  'midnight-rosy-1.jpg': 'images/midnight-rosy-1.jpg',
+  'midnight-rosy-2.jpg': 'images/midnight-rosy-2.jpg'
+,
+  'interested-1-raw.png': 'images/interested-1-raw.png',
+  'interested-1-pop.png': 'images/interested-1-pop.png',
+  'interested-2-raw.png': 'images/interested-2-raw.png',
+  'interested-2-pop.png': 'images/interested-2-pop.png',
+  'interested-3-raw.png': 'images/interested-3-raw.png',
+  'interested-3-pop.png': 'images/interested-3-pop.png'
+};
+const ANGRY4K='images/angry-rosy-4k.jpg';
+const ANGRY_RAW='images/angry-rosy-raw.png';
+const ANGRY_CC='images/angry-rosy-sunshine-cc.png';
+const ASSET='';
+const state={
+  page:'home',
+  cart: JSON.parse(localStorage.getItem('rosypics-cart')||'[]'),
+  purchasedPhotos: JSON.parse(localStorage.getItem('rosypics-purchased-photos')||'[]'),
+  purchasedBundles: JSON.parse(localStorage.getItem('rosypics-purchased-bundles')||'[]'),
+  orders: JSON.parse(localStorage.getItem('rosypics-orders')||'[]'),
+  selectedCG:'Vibrant',
+  overviewVersion:'raw',
+  uploads:{Vibrant:null,Pop:null},
+  email:localStorage.getItem('rosypics-email')||'',
+  giftBalance:Number(localStorage.getItem('rosypics-gift-balance')||0),
+  giftCards:JSON.parse(localStorage.getItem('rosypics-gift-cards')||'{}'),
+  paymentMethod:'card',
+  giftCode:'',
+  giftApplied:0,
+  lastOrder:[],
+  interestedVariants:['raw','raw','raw']
+};
+
+const products={
+  angry:{name:'Angry Rosy',price:29,img:IMG['angry-rosy.jpg'],download:ANGRY4K},
+  midnight:{name:'Midnight with Rosy',price:59,img:IMG['midnight-rosy-1.jpg'],bundle:true,downloads:[{name:'Midnight with Rosy — Photo 1',url:IMG['midnight-rosy-1.jpg'],file:'Midnight-with-Rosy-1.jpg'},{name:'Midnight with Rosy — Photo 2',url:IMG['midnight-rosy-2.jpg'],file:'Midnight-with-Rosy-2.jpg'}]},
+  interested:{name:'Interested Rosy Bundle',price:179,img:IMG['interested-1-raw.png'],bundle:true,downloads:[{name:'Interested Rosy — Photo 1 — Original',url:IMG['interested-1-raw.png'],file:'Interested-Rosy-1-Original.png'},{name:'Interested Rosy — Photo 1 — Pop CC',url:IMG['interested-1-pop.png'],file:'Interested-Rosy-1-Pop-CC.png'},{name:'Interested Rosy — Photo 2 — Original',url:IMG['interested-2-raw.png'],file:'Interested-Rosy-2-Original.png'},{name:'Interested Rosy — Photo 2 — Pop CC',url:IMG['interested-2-pop.png'],file:'Interested-Rosy-2-Pop-CC.png'},{name:'Interested Rosy — Photo 3 — Original',url:IMG['interested-3-raw.png'],file:'Interested-Rosy-3-Original.png'},{name:'Interested Rosy — Photo 3 — Pop CC',url:IMG['interested-3-pop.png'],file:'Interested-Rosy-3-Pop-CC.png'}]},
+  Vibrant:{name:'Vibrant CC',price:99,img:IMG['thumb-vibrant.jpg']},
+  Pop:{name:'Pop CC',price:99,img:IMG['thumb-pop.jpg']},
+  gift300:{name:'₹300 Gift Card',price:300,img:IMG['thumb-vibrant.jpg'],gift:300},
+  gift600:{name:'₹600 Gift Card',price:600,img:IMG['thumb-vibrant.jpg'],gift:600},
+  gift1200:{name:'₹1200 Gift Card',price:1200,img:IMG['thumb-vibrant.jpg'],gift:1200},
+  gift2400:{name:'₹2400 Gift Card',price:2400,img:IMG['thumb-vibrant.jpg'],gift:2400}
+};
+
+function money(n){return '₹'+n}
+function midnightDeadline(){
+  let d=Number(localStorage.getItem('rosypics-midnight-deadline')||0);
+  if(!d || d<=Date.now()){d=Date.now()+8*24*60*60*1000;localStorage.setItem('rosypics-midnight-deadline',String(d));}
+  return d;
+}
+function midnightTimeLeft(){return Math.max(0,midnightDeadline()-Date.now())}
+function formatMidnightTime(ms){
+  const total=Math.floor(ms/1000),days=Math.floor(total/86400),hours=Math.floor((total%86400)/3600),mins=Math.floor((total%3600)/60),secs=total%60;
+  return `${days}d ${String(hours).padStart(2,'0')}h ${String(mins).padStart(2,'0')}m ${String(secs).padStart(2,'0')}s`;
+}
+function midnightExpired(){return midnightTimeLeft()<=0}
+function makeGiftCode(amount){
+  return 'ROSY-'+Number(amount).toString(36).toUpperCase()+'-'+Math.random().toString(36).slice(2,8).toUpperCase();
+}
+function giftAmount(item){
+  if(item && item.gift) return Number(item.gift);
+  const m=String(item?.name||'').match(/₹\s*([0-9,]+)/);
+  return m ? Number(m[1].replace(/,/g,'')) : 0;
+}
+function save(){localStorage.setItem('rosypics-cart',JSON.stringify(state.cart));localStorage.setItem('rosypics-purchased-photos',JSON.stringify(state.purchasedPhotos));localStorage.setItem('rosypics-purchased-bundles',JSON.stringify(state.purchasedBundles));localStorage.setItem('rosypics-orders',JSON.stringify(state.orders));localStorage.setItem('rosypics-gift-balance',String(state.giftBalance));localStorage.setItem('rosypics-gift-cards',JSON.stringify(state.giftCards));if(state.email)localStorage.setItem('rosypics-email',state.email)}
+function updateCartCount(){const el=document.getElementById('cart-count');if(el)el.textContent=state.cart.length}
+function cartTotal(){return state.cart.reduce((s,x)=>s+x.price,0)}
+function addCart(id){
+  const p=products[id];
+  if(!p)return;
+
+  // Midnight is one ₹59 bundle containing both 4K files. Keep it as a
+  // single cart line so the customer pays ₹59 once, while the cart still
+  // shows both photos included in the bundle.
+  if(p.bundle){
+    const existing=state.cart.find(x=>x.id===id);
+    if(existing){toast(p.name+' is already in your cart');return;}
+    state.cart.push({
+      id, name:p.name, price:p.price, img:p.img, gift:null, bundle:true,
+      downloads:(p.downloads||[]).map(d=>({name:d.name,url:d.url,file:d.file}))
+    });
+  }else{
+    state.cart.push({id,name:p.name,price:p.price,img:p.img,gift:p.gift||null});
+  }
+  save();
+  updateCartCount();
+  toast(p.name+' added to cart');
+}
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),2200);
+}
+function go(page){
+  state.page=page;
+  render();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-page]');
+  if(b)go(b.dataset.page);
+});
+
+function navActive(){
+  document.querySelectorAll('.nav-link[data-page]').forEach(x=>{
+    x.classList.toggle('active',x.dataset.page===state.page || (state.page==='purchase'&&x.dataset.page==='cg'));
+  });
+}
+
+function render(){
+  const app=document.getElementById('app');
+  let html='';
+  if(state.page==='home')html=home();
+  if(state.page==='cg')html=cg();
+  if(state.page==='cart')html=cart();
+  if(state.page==='purchase')html=purchase();
+  if(state.page==='thanks')html=thanks();
+  if(state.page==='mypics')html=mypics();
+  if(state.page==='pictures')html=pictures();
+  if(state.page==='account')html=account();
+  if(state.page==='giftshop')html=giftshop();
+  if(state.page==='overview')html=pictureOverview();
+  if(state.page==='midnight')html=midnightBundle();
+  if(state.page==='interested')html=interestedBundle();
+  app.innerHTML='<div class="page enter">'+html+'</div>';
+  navActive();
+  updateCartCount();
+  bindPage();
+}
+
+function home(){
+return `
+<div class="home-shell">
+  <section class="hero">
+    <h1>Rosy<span class="yellow">Pics</span></h1>
+    <p>Premium digital assets of Rosy</p>
+  </section>
+  <h2 class="section-title">Picture of the day</h2>
+  <section class="product-row">
+    <div class="preview-watermark main-preview-wrap">
+      <img class="main-photo" src="${ANGRY_RAW}" alt="Angry Rosy preview">
+    </div>
+    <div class="product-info">
+      <h2>Angry Rosy</h2>
+      <div class="details">4K Resolution<br>Sunshine CG Included<br>Raw file included</div>
+      <div class="thumbs">
+        <div class="thumb"><img src="${ANGRY_RAW}" alt="Angry Rosy Raw">Raw</div>
+        <div class="thumb"><img src="${ANGRY_CC}" alt="Angry Rosy Sunshine CC">CG</div>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price">₹29</div>
+      <div class="underline"></div>
+      <button class="green-btn buy-btn-small" id="buy-angry">Buy</button>
+    </div>
+  </section>
+</div>`;
+}
+
+function cg(){
+const vibrant=state.selectedCG==='Vibrant';
+return `
+<section class="subpage">
+  <h1>Custom Colour Grading</h1>
+  <p class="subtitle">Upload an image of yours and get if professionally colour-graded by our team</p>
+  <section class="cg-grid">
+    <div class="compare">
+      <h3>Before</h3>
+      <img src="${IMG['before.jpg']}" alt="Before colour grading">
+    </div>
+    <div class="compare">
+      <h3>With CC</h3>
+      <img src="${vibrant?IMG['vibrant.jpg']:IMG['pop.jpg']}" alt="Colour graded">
+    </div>
+    <div class="cg-side">
+      <div class="styles">
+        <button type="button" class="style-choice ${vibrant?'selected':''}" data-style="Vibrant">
+          <img src="${IMG['thumb-vibrant.jpg']}" alt="Vibrant">Vibrant
+        </button>
+        <button type="button" class="style-choice ${!vibrant?'selected':''}" data-style="Pop">
+          <img src="${IMG['thumb-pop.jpg']}" alt="Pop">Pop
+        </button>
+      </div>
+      <div class="cg-copy">
+        <h2>Add ${state.selectedCG} CC to cart</h2>
+        <p>${vibrant
+          ?'Makes the image much more vibrant, adds bright lighting and makes things pop out more'
+          :'Highlights the main person/animal in the image, while leaving the rest of the background in black and white'}</p>
+      </div>
+    </div>
+    <div class="cg-price">₹99</div>
+    <div class="cg-action"><button class="green-btn buy-btn-small" id="cg-done">Add to cart</button></div>
+  </section>
+</section>`;
+}
+
+function cart(){
+  const items=state.cart;
+  if(!items.length)return `<section class="subpage"><h1>Your Cart</h1><p class="subtitle">Nothing here yet.</p><div style="margin-top:45px"><button class="green-btn" onclick="go('pictures')">Browse pictures</button></div></section>`;
+  return `
+<section class="subpage cart-page">
+  <h1>Your Cart</h1>
+  <p class="subtitle">Review your items before checkout.</p>
+  <div class="cart-list">
+    ${items.map((x,i)=>`<div class="cart-item">
+      <div class="cart-item-media">
+        ${x.bundle && Array.isArray(x.downloads) ? x.downloads.map(d=>`<img src="${d.url}" alt="${d.name}">`).join('') : `<img src="${x.img}" alt="${x.name}">`}
+      </div>
+      <div class="cart-item-info"><h2>${x.name}</h2><p>${x.id==='angry'?'4K digital photo — instant download after payment':(x.id==='midnight'?"Collector's Edition bundle — 2 original 4K photos — both included for ₹59":(x.id==='interested'?"3-photo collection — Original + Pop CC variants — 6 files for ₹179":'Professional custom colour grading service'))}</p></div>
+      <div class="cart-item-price">${money(x.price)}</div>
+      <button class="remove-btn" data-remove="${i}" aria-label="Remove ${x.name}">Remove</button>
+    </div>`).join('')}
+  </div>
+  <div class="cart-footer">
+    <div><span>Total</span><strong>${money(cartTotal())}</strong></div>
+    <button class="green-btn" id="checkout-cart">Checkout</button>
+  </div>
+</section>`;
+}
+
+function purchase(){
+const items=state.cart;
+if(!items.length)return `<section class="purchase-page"><h1>Purchase</h1><p class="subtitle">Your cart is empty.</p><div style="margin-top:50px"><button class="green-btn" onclick="go('home')">Go shopping</button></div></section>`;
+const hasGift=items.some(x=>x.id&&x.id.startsWith('gift'));
+const total=cartTotal();
+const applied=Math.min(state.giftApplied||0,total);
+const remaining=Math.max(0,total-applied);
+return `
+<section class="purchase-page">
+  <h1>Purchase</h1>
+  <p class="subtitle">Your cart has ${items.length} item${items.length===1?'':'s'}. Complete your order below.</p>
+  <div class="purchase-layout">
+    <div>
+      <label class="form-label">Email (for contact purposes)</label>
+      <input class="email-input" id="email" type="email" placeholder="someone@example.com" value="${state.email}">
+      <div class="gift-balance">Gift card balance: <strong>${money(state.giftBalance)}</strong></div>
+      <div class="gift-code-row">
+        <input class="gift-code-input" id="gift-code" placeholder="Enter gift card code" value="${state.giftCode||''}">
+        <button class="gift-code-btn" id="apply-gift">${state.giftApplied?'Applied':'Add'}</button>
+      </div>
+      <div class="checkout-note">Gift cards are applied to your cart balance. Gift card purchases are paid by card and the code is issued instantly after checkout.</div>
+      <div class="payment-options">
+        <button class="payment-option ${state.paymentMethod==='card'?'selected':''}" data-payment="card"><strong>Pay by Card</strong><small>Demo checkout for now</small></button>
+        <button class="payment-option ${state.paymentMethod==='gift'?'selected':''}" data-payment="gift" ${state.giftBalance<=0?'disabled':''}><strong>Use Gift Card</strong><small>Balance: ${money(state.giftBalance)}</small></button>
+      </div>
+      ${items.filter(x=>x.id==='Vibrant'||x.id==='Pop').length ? `<div class="uploads">
+        ${items.filter(x=>x.id==='Vibrant'||x.id==='Pop').map(x=>`<div class="upload-col"><h2>${x.id}</h2><label class="upload-box" data-upload="${x.id}"><input type="file" accept="image/*"><span><strong>Upload</strong> your image<br>or drag it here</span></label></div>`).join('')}
+      </div>`:''}
+    </div>
+    <aside class="summary">
+      <div class="summary-total">${money(total)}</div>
+      <div class="summary-items">${items.map(x=>`<div class="summary-item"><img src="${x.img}"><b>${x.name.replace(' CC','')}</b></div>`).join('')}</div>
+      <div class="checkout-note" style="margin-top:25px">Gift applied: <strong>${money(applied)}</strong><br>Remaining: <strong>${money(remaining)}</strong></div>
+      <button class="green-btn summary-buy" id="pay">${remaining===0?'Complete Order':'Pay '+money(remaining)}</button>
+    </aside>
+  </div>
+</section>`;
+}
+function thanks(){
+return `
+<section class="thanks-page">
+  <h1>Thank You!</h1>
+  <p class="subtitle">Your purchased photos are available instantly. Custom CC orders are completed within <strong>2-3 business days</strong></p>
+  <div class="thanks-card">
+    <h2>Confirmed Order</h2>
+    <p>${state.lastOrder.map(x=>'1x '+x.name).join('<br>')}</p>${(state.orders[state.orders.length-1]?.giftCodes||[]).length?'<div style="margin-top:22px"><strong>Your Gift Card Code(s)</strong><br>'+(state.orders[state.orders.length-1].giftCodes.map(g=>`<code style="display:inline-block;margin-top:8px;background:#222;padding:8px 12px;border-radius:9px;color:#ffb800">${g.code} · ₹${g.balance}</code>`).join('<br>'))+'</div>':''}
+    <div class="cart-graphic">
+      <div class="cart-frame"></div><div class="cart-handle"></div>
+      <div class="cart-wheel one"></div><div class="cart-wheel two"></div>
+    </div>
+    <div class="thanks-items">${state.lastOrder.map(x=>`<div><img src="${x.img}">${x.name.replace(' CC','')}</div>`).join('')}</div>
+    <div class="view-account" onclick="go('account')" style="cursor:pointer">View on account</div>
+  </div>
+</section>`;
+}
+
+function mypics(){
+  const owned=state.purchasedPhotos;
+  const hasMidnight=state.purchasedBundles.includes('midnight');
+  const hasInterested=state.purchasedBundles.includes('interested');
+  return `
+<section class="subpage">
+  <h1>MyPics</h1>
+  <p class="subtitle">Your purchased RosyPics library</p>
+  ${owned.includes('angry') ? `<div class="gallery owned-gallery"><div class="gallery-card owned-card">
+    <span class="product-preview-wrap"><img src="${IMG['angry-rosy.jpg']}" alt="Angry Rosy"></span>
+    <div><div><h2>Angry Rosy</h2><p>Raw + Sunshine CC · 4K</p></div><div class="download-actions">
+      <a class="download-btn" href="${ANGRY_RAW}" download="Angry-Rosy-Raw.png">Download Raw</a><a class="download-btn" href="${ANGRY_CC}" download="Angry-Rosy-Sunshine-CC.png">Download CC</a>
+    </div></div>
+  </div></div>` : ''}
+  ${hasMidnight ? `<h2 class="orders-heading" style="margin-top:45px">Midnight with Rosy</h2><div class="bundle-my-pics">
+    <div class="bundle-owned-card"><span><img src="${IMG['midnight-rosy-1.jpg']}" alt="Midnight with Rosy — Photo 1"></span><div class="bundle-owned-copy"><h3>Midnight with Rosy — Photo 1</h3><p>Original 4K file</p><a class="download-btn" href="${IMG['midnight-rosy-1.jpg']}" download="Midnight-with-Rosy-1.jpg">Download 4K</a></div></div>
+    <div class="bundle-owned-card"><span><img src="${IMG['midnight-rosy-2.jpg']}" alt="Midnight with Rosy — Photo 2"></span><div class="bundle-owned-copy"><h3>Midnight with Rosy — Photo 2</h3><p>Original 4K file</p><a class="download-btn" href="${IMG['midnight-rosy-2.jpg']}" download="Midnight-with-Rosy-2.jpg">Download 4K</a></div></div>
+  </div>` : ''}
+  ${hasInterested ? `<h2 class="orders-heading" style="margin-top:45px">Interested Rosy Bundle</h2><p class="subtitle" style="margin-bottom:20px">Original photos and their Pop colour-graded variants — watermark-free because you own them.</p><div class="bundle-my-pics interested-owned-grid">
+    ${[1,2,3].map(n=>`<div class="bundle-owned-card"><span><img src="${IMG[`interested-${n}-raw.png`]}" alt="Interested Rosy — Photo ${n}"></span><div class="bundle-owned-copy"><h3>Interested Rosy — Photo ${n}</h3><p>Original + Pop CC · 4K</p><div class="download-actions" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a class="download-btn" href="${IMG[`interested-${n}-raw.png`]}" download="Interested-Rosy-${n}-Original.png">Original</a><a class="download-btn" href="${IMG[`interested-${n}-pop.png`]}" download="Interested-Rosy-${n}-Pop-CC.png">Pop CC</a></div></div></div>`).join('')}
+  </div>` : ''}
+  ${(!owned.includes('angry')&&!hasMidnight&&!hasInterested) ? `<div class="empty"><h2>No purchases yet</h2><p>Photos you buy will appear here instantly after payment.</p><button class="green-btn" onclick="go('pictures')">Browse pictures</button></div>` : ''}
+</section>`;
+}
+
+function giftshop(){
+const cards=[300,600,1200,2400];
+return `<section class="subpage"><h1>Gift Shop</h1><p class="subtitle">Give someone RosyPics credit to spend on photos and colour grading.</p><div class="gift-grid">${cards.map(v=>`<div class="gift-card"><div><div class="gift-visual">₹${v}</div><h2>₹${v} Gift Card</h2><p>Digital gift card · instant code after purchase</p></div><button class="green-btn buy-btn-small gift-buy" data-product="gift${v}">Buy</button></div>`).join('')}</div></section>`;
+}
+
+function account(){
+  const orders=state.orders||[];
+  return `
+<section class="subpage account-page">
+  <h1>Account</h1>
+  <p class="subtitle">Your RosyPics orders and account details</p>
+  <div class="account-grid">
+    <div class="account-card">
+      <span class="account-label">Email</span>
+      <strong>${state.email || 'No email saved yet'}</strong>
+      <p>Used for order contact and updates.</p>
+    </div>
+    <div class="account-card">
+      <span class="account-label">Gift Card Balance</span>
+      <strong>${money(state.giftBalance)}</strong>
+      <p>Your available RosyPics gift credit.</p>
+      <button class="account-link" onclick="go('giftshop')">Gift Shop</button>
+      <button class="account-link" onclick="go('mypics')">Open MyPics</button>
+    </div>
+  </div>
+  <div class="account-card"><span class="account-label">MyPics</span><strong>${(state.purchasedPhotos.includes('angry')?1:0)+(state.purchasedBundles.includes('midnight')?2:0)+(state.purchasedBundles.includes('interested')?6:0)} purchased photo${((state.purchasedPhotos.includes('angry')?1:0)+(state.purchasedBundles.includes('midnight')?2:0)+(state.purchasedBundles.includes('interested')?6:0))===1?'':'s'}</strong><button class="account-link" onclick="go('mypics')">Open MyPics</button></div>
+  <h2 class="orders-heading">Orders</h2>
+  ${orders.length ? `<div class="orders-list">${orders.slice().reverse().map(o=>`
+    <div class="order-card">
+      <div class="order-top"><div><span class="order-id">Order ${o.id}</span><span class="order-date">${o.date}</span></div><strong>${money(o.total)}</strong></div>
+      <div class="order-items">${o.items.map(x=>{const isGift=!!x.gift || String(x.id||'').startsWith('gift') || /gift card/i.test(x.name||''); const isPhoto=x.id==='angry'; const isBundle=x.id==='midnight'||x.id==='interested'; return `<div class="order-item"><img src="${x.img}"><div><b>${x.name}</b><p>${isGift?'Digital gift card · code issued instantly':(isBundle?(x.id==='interested'?'3 photos + 3 Pop CC variants · unlocked in MyPics':"Collector's Edition · 2 digital photos · unlocked in MyPics"):(isPhoto?'Digital photo · unlocked in MyPics':'Custom colour grading · completed and delivered by email'))}</p>${isGift && o.giftCodes?.length?`<div style="margin-top:8px"><span style="color:#aaa;font-size:13px">Gift card code</span><br><code style="display:inline-block;margin-top:5px;background:#222;padding:8px 11px;border-radius:8px;color:#ffb800;user-select:all">${o.giftCodes.find(g=>g.balance===giftAmount(x))?.code || o.giftCodes[0]?.code || ''}</code></div>`:''}</div><span class="status ${isGift||isPhoto||isBundle?'complete':'pending'}">${isGift||isPhoto||isBundle?'Completed':'Pending'}</span></div>`}).join('')}</div>
+    </div>`).join('')}</div>` : `<div class="empty"><h2>No orders yet</h2><p>Your completed and pending orders will appear here.</p><button class="green-btn" onclick="go('pictures')">Browse pictures</button></div>`}
+</section>`;
+}
+
+function pictures(){
+return `
+<section class="subpage">
+  <h1>Pictures</h1>
+  <p class="subtitle">Premium Rosy photography</p>
+  <div class="gallery product-gallery">
+    <button class="gallery-card product-card" style="text-align:left;border:1px solid #292929;color:#fff;background:#151515;padding:0;overflow:hidden" data-overview="angry">
+      <span class="preview-watermark product-preview-wrap"><img src="${ANGRY_RAW}" alt="Angry Rosy"></span>
+      <div><h2>Angry Rosy</h2><p>4K · Raw + Sunshine CC</p><strong>₹29</strong></div>
+    </button>
+    <button class="gallery-card bundle-card" style="padding:0" data-midnight-overview>
+      <div class="bundle-cover">
+        <span class="collector-badge">Collector's Edition</span>
+        <img src="${IMG['midnight-rosy-1.jpg']}" alt="Midnight with Rosy">
+      </div>
+      <div class="bundle-card-copy">
+        <h2>Midnight with Rosy</h2>
+        <p>Limited-time 4K bundle · 2 photos · Collector's Edition</p>
+        <div class="bundle-card-bottom">
+          <span class="bundle-card-price">₹59</span>
+          <span class="green-btn">View Bundle</span>
+        </div>
+      </div>
+    </button>
+
+    <button class="gallery-card bundle-card" style="padding:0" data-interested-overview>
+      <div class="bundle-cover"><span class="collector-badge">Pop CC Included</span><img src="${IMG['interested-1-raw.png']}" alt="Interested Rosy Bundle"></div>
+      <div class="bundle-card-copy"><h2>Interested Rosy Bundle</h2><p>3 photos · 3 Pop CC variants · Original + Pop included</p><div class="bundle-card-bottom"><span class="bundle-card-price">₹179</span><span class="green-btn">View Collection</span></div></div>
+    </button>
+  </div>
+</section>`;
+}
+
+
+function pictureOverview(){
+  const cc=state.overviewVersion==='cc';
+  const preview=cc?ANGRY_CC:ANGRY_RAW;
+  return `<section class="subpage">
+  <button class="overview-back" onclick="go('pictures')">← Back to Pictures</button>
+  <div class="overview-layout">
+    <div>
+      <p class="overview-preview-label">Preview · ${cc?'Sunshine CC':'Raw'}</p>
+      <span class="preview-watermark overview-preview-wrap"><img class="overview-image" id="angry-overview-image" src="${preview}" alt="Angry Rosy ${cc?'with Sunshine CC':'Raw'} preview"></span>
+    </div>
+    <div class="overview-info">
+      <h2>Angry Rosy</h2>
+      <p>Get Rosy in crisp 4K with both the original Raw version and the Sunshine colour-graded version.</p>
+      <div class="overview-switch">
+        <button class="${!cc?'active':''}" data-overview-version="raw">Angry Rosy</button>
+        <button class="${cc?'active':''}" data-overview-version="cc">Angry Rosy with CC</button>
+      </div>
+      <ul class="overview-points"><li>4K resolution</li><li>Raw file included</li><li>Sunshine CC included</li><li>Instant access in MyPics after purchase</li></ul>
+      <div class="overview-price">₹29</div>
+      <button class="green-btn buy-btn-small" id="overview-buy">Buy</button>
+    </div>
+  </div>
+</section>`;
+}
+function midnightBundle(){
+  const expired=midnightExpired();
+  return `<section class="subpage bundle-page">
+    <button class="bundle-back" onclick="go('pictures')">← Back to Pictures</button>
+    <div class="bundle-hero">
+      <div>
+        <div class="bundle-gallery">
+          <span class="bundle-shot"><img src="${IMG['midnight-rosy-1.jpg']}" alt="Midnight with Rosy — Photo 1"></span>
+          <span class="bundle-shot"><img src="${IMG['midnight-rosy-2.jpg']}" alt="Midnight with Rosy — Photo 2"></span>
+        </div>
+      </div>
+      <aside class="bundle-details">
+        <div class="bundle-kicker">Collector's Edition</div>
+        <h1>Midnight with Rosy</h1>
+        <p class="lead">A limited-time two-photo 4K collection featuring Rosy at night. Both original full-resolution files are included.</p>
+        <div class="bundle-price-row">
+          <div class="bundle-price">₹59</div>
+          <div class="bundle-limited">LIMITED TIME<br>Collector's Edition</div>
+        </div>
+        <div class="bundle-countdown">
+          <div class="bundle-countdown-label">Offer ends in</div>
+          <div class="bundle-timer" id="midnight-countdown">${formatMidnightTime(midnightTimeLeft())}</div>
+        </div>
+        <ul class="bundle-features">
+          <li>2 original 4K photos</li>
+          <li>Full-resolution downloads</li>
+          <li>Instant access after purchase</li>
+          <li>Added to your MyPics library</li>
+        </ul>
+        <button class="green-btn bundle-buy ${expired?'bundle-expired':''}" id="midnight-buy" ${expired?'disabled':''}>${expired?"Collection Expired":"Buy Collector's Edition — ₹59"}</button>
+        <p class="bundle-note">Preview images are watermarked. Your purchased downloads are delivered without the preview watermark.</p>
+      </aside>
+    </div>
+  </section>`;
+}
+
+function setInterestedVariant(index,variant){state.interestedVariants[index]=variant==='pop'?'pop':'raw';render();}
+function interestedBundle(){
+  const pairs=[{n:1,raw:IMG['interested-1-raw.png'],pop:IMG['interested-1-pop.png']},{n:2,raw:IMG['interested-2-raw.png'],pop:IMG['interested-2-pop.png']},{n:3,raw:IMG['interested-3-raw.png'],pop:IMG['interested-3-pop.png']}];
+  return `<section class="subpage bundle-page interested-page"><button class="bundle-back" onclick="go('pictures')">← Back to Pictures</button><div class="bundle-hero"><div><div class="bundle-kicker" style="margin-bottom:10px">Premium Collection</div><h2 style="font-size:42px;margin:0 0 25px;letter-spacing:-1.5px">Preview every photo in Original or Pop CC</h2><div class="interested-gallery">${pairs.map((p,i)=>{const isPop=state.interestedVariants[i]==='pop';const src=isPop?p.pop:p.raw;return `<article class="interested-preview-card"><div class="interested-preview-head"><span>Photo ${p.n}</span><strong>${isPop?'Pop CC':'Original'}</strong></div><span class="preview-watermark interested-preview"><img src="${src}" alt="Interested Rosy Photo ${p.n} ${isPop?'Pop CC':'Original'}"></span><div class="interested-switch"><button class="${!isPop?'active':''}" onclick="setInterestedVariant(${i},'raw')">Original</button><button class="${isPop?'active':''}" onclick="setInterestedVariant(${i},'pop')">Pop CC</button></div></article>`}).join('')}</div></div><aside class="bundle-details"><div class="bundle-kicker">RosyPics Collection</div><h1>Interested Rosy</h1><p class="lead">A three-photo collection of Rosy, with a separate Pop colour-graded version of every image. Six full-resolution files are included.</p><div class="bundle-price-row"><div class="bundle-price">₹179</div><div class="bundle-limited">3 PHOTOS<br>POP CC INCLUDED</div></div><ul class="bundle-features"><li>3 original 4K photos</li><li>3 Pop CC 4K variants</li><li>6 files included in total</li><li>Watermarked previews, clean downloads after purchase</li><li>Instant access in MyPics</li></ul><button class="green-btn bundle-buy" id="interested-buy">Add Collection to Cart — ₹179</button><p class="bundle-note">Preview images are watermarked. Your purchased files are delivered without the preview watermark.</p></aside></div></section>`;
+}
+
+function bindPage(){
+  const angry=document.getElementById('buy-angry');
+  if(angry)angry.onclick=()=>addCart('angry');
+  document.querySelectorAll('[data-style]').forEach(b=>b.onclick=()=>{state.selectedCG=b.dataset.style;render()});
+  const cgDone=document.getElementById('cg-done'); if(cgDone)cgDone.onclick=()=>addCart(state.selectedCG);
+  document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{const i=Number(b.dataset.remove);state.cart.splice(i,1);save();render();toast('Item removed')});
+  const checkout=document.getElementById('checkout-cart'); if(checkout)checkout.onclick=()=>go('purchase');
+  document.querySelectorAll('.gallery-buy').forEach(b=>b.onclick=()=>addCart(b.dataset.product));
+  document.querySelectorAll('[data-overview]').forEach(b=>b.onclick=()=>go('overview'));
+  document.querySelectorAll('[data-midnight-overview]').forEach(b=>b.onclick=()=>go('midnight'));
+  document.querySelectorAll('[data-interested-overview]').forEach(b=>b.onclick=()=>go('interested'));
+  const midnightBuy=document.getElementById('midnight-buy');
+  if(midnightBuy){
+    const updateMidnight=()=>{
+      const left=midnightTimeLeft();
+      const timer=document.getElementById('midnight-countdown');
+      if(timer)timer.textContent=formatMidnightTime(left);
+      if(left<=0){
+        midnightBuy.disabled=true;
+        midnightBuy.classList.add('bundle-expired');
+        midnightBuy.textContent='Collection Expired';
+        clearInterval(window.__midnightTimer);
+      }
+    };
+    updateMidnight();
+    clearInterval(window.__midnightTimer);
+    window.__midnightTimer=setInterval(updateMidnight,1000);
+    midnightBuy.onclick=()=>{if(!midnightExpired())addCart('midnight')};
+  }
+  const interestedBuy=document.getElementById('interested-buy'); if(interestedBuy)interestedBuy.onclick=()=>addCart('interested');
+  const overviewBuy=document.getElementById('overview-buy'); if(overviewBuy)overviewBuy.onclick=()=>addCart('angry');
+  document.querySelectorAll('[data-overview-version]').forEach(b=>b.onclick=()=>{state.overviewVersion=b.dataset.overviewVersion==='cc'?'cc':'raw';render()});
+  document.querySelectorAll('.gift-buy').forEach(b=>b.onclick=()=>addCart(b.dataset.product));
+  const email=document.getElementById('email'); if(email)email.oninput=e=>{state.email=e.target.value;localStorage.setItem('rosypics-email',state.email)};
+  document.querySelectorAll('[data-payment]').forEach(b=>b.onclick=()=>{if(b.disabled)return;state.paymentMethod=b.dataset.payment;render()});
+  const giftInput=document.getElementById('gift-code'); if(giftInput)giftInput.oninput=e=>state.giftCode=e.target.value.trim().toUpperCase();
+  const applyGift=document.getElementById('apply-gift'); if(applyGift)applyGift.onclick=applyGiftCode;
+  document.querySelectorAll('[data-upload]').forEach(box=>{const input=box.querySelector('input');input.onchange=()=>handleFile(box,input.files[0]);['dragenter','dragover'].forEach(ev=>box.addEventListener(ev,e=>{e.preventDefault();box.classList.add('drag')}));['dragleave','drop'].forEach(ev=>box.addEventListener(ev,e=>{e.preventDefault();box.classList.remove('drag')}));box.addEventListener('drop',e=>{const file=e.dataTransfer.files[0];if(file)handleFile(box,file)})});
+  const pay=document.getElementById('pay'); if(pay)pay.onclick=checkoutDemo;
+}
+
+function applyGiftCode(){
+  const code=(document.getElementById('gift-code')?.value||'').trim().toUpperCase();
+  if(!code){toast('Enter a gift card code');return}
+  let card=state.giftCards[code];
+  if(card && card.redeemed){toast('Gift card code is invalid or already used');return}
+  // Single-file demo: gift codes carry their purchased value, so a recipient can
+  // enter a code even on a different browser/device. A real multi-user system
+  // should validate/redeem these server-side to prevent copying or forgery.
+  if(!card){
+    const parts=code.split('-');
+    if(parts.length===3 && parts[0]==='ROSY'){
+      const decoded=parseInt(parts[1],36);
+      if([300,600,1200,2400].includes(decoded)){
+        card={balance:decoded,redeemed:false};
+        state.giftCards[code]=card;
+      }
+    }
+  }
+  if(!card || card.redeemed){toast('Gift card code is invalid or already used');return}
+  state.giftBalance+=Number(card.balance||0);
+  card.redeemed=true;
+  state.giftApplied=0;
+  state.giftCode='';
+  save();render();toast('Gift card added to your balance');
+}
+
+function handleFile(box,file){
+  if(!file)return;
+  const id=box.dataset.upload;
+  state.uploads[id]=file;
+  box.innerHTML='<span style="font-size:17px">✓ <strong>'+file.name+'</strong><br>Image attached</span>';
+  toast(id+' image attached');
+}
+
+function checkoutDemo(){
+  const email=document.getElementById('email')?.value.trim();
+  if(!email || !email.includes('@')){toast('Please enter a valid email');return}
+  const items=state.cart.map(x=>({...x}));
+  const total=cartTotal();
+  const giftItems=items.filter(x=>x.gift);
+  if(giftItems.length && state.paymentMethod==='gift'){toast('Gift cards must be purchased by card');return}
+  const useGift=state.paymentMethod==='gift' ? Math.min(state.giftBalance,total) : Math.min(state.giftApplied||0,total);
+  if(state.paymentMethod==='gift' && useGift<=0){toast('No gift card balance available');return}
+  if(useGift>0){state.giftBalance-=useGift;}
+  state.email=email;
+  state.lastOrder=items;
+  const order={id:'RP-'+Date.now().toString().slice(-6),date:new Date().toLocaleString([], {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}),email,total,paidWith:useGift===total?'Gift Card':(useGift>0?'Gift Card + Card':'Card'),giftUsed:useGift,items:items};
+  // Gift cards are issued instantly after a successful purchase.
+  order.giftCodes=[];
+  giftItems.forEach(x=>{
+    const amount=giftAmount(x);
+    if(!amount)return;
+    const code=makeGiftCode(amount);
+    state.giftCards[code]={balance:amount,redeemed:false};
+    order.giftCodes.push({code,balance:amount});
+  });
+  state.orders.push(order);
+  items.forEach(x=>{
+    if(x.id==='angry'&&!state.purchasedPhotos.includes('angry'))state.purchasedPhotos.push('angry');
+    if(x.id==='midnight'&&!state.purchasedBundles.includes('midnight'))state.purchasedBundles.push('midnight');
+    if(x.id==='interested'&&!state.purchasedBundles.includes('interested'))state.purchasedBundles.push('interested');
+  });
+  state.cart=[];state.giftApplied=0;state.giftCode='';state.paymentMethod='card';save();
+  toast('Payment successful');setTimeout(()=>go('thanks'),650);
+}
+// Repair older demo orders that were marked completed before gift codes were stored.
+(function repairGiftOrders(){
+  let changed=false;
+  (state.orders||[]).forEach(order=>{
+    if(!order || !Array.isArray(order.items)) return;
+    if(!Array.isArray(order.giftCodes)) order.giftCodes=[];
+    order.items.forEach(item=>{
+      if(!item || !(item.gift || String(item.id||'').startsWith('gift') || /gift card/i.test(item.name||''))) return;
+      const amount=giftAmount(item);
+      if(!amount)return;
+      const existing=order.giftCodes.find(g=>Number(g.balance)===amount);
+      if(!existing){
+        const code=makeGiftCode(amount);
+        order.giftCodes.push({code,balance:amount});
+        state.giftCards[code]={balance:amount,redeemed:false};
+        changed=true;
+      }
+    });
+  });
+  if(changed)save();
+})();
+midnightDeadline();
+render();
+
+// Desktop screenshot deterrence.
+// Browsers cannot guarantee blocking OS-level screenshots, but we can reliably
+// protect the page when the browser loses focus / becomes hidden and keep the
+// protection overlay itself sharp.
+(function initCaptureProtection(){
+  const shield=document.getElementById('captureShield');
+  let timer;
+  let protectedNow=false;
+
+  function setProtected(on){
+    if(!shield)return;
+    protectedNow=!!on;
+    shield.classList.toggle('show',protectedNow);
+    document.body.classList.toggle('capture-protected',protectedNow);
+  }
+
+  function showShield(){
+    if(!shield)return;
+    setProtected(true);
+    clearTimeout(timer);
+    // Do not auto-remove the shield merely because a timer elapsed. It should
+    // stay up until the browser is focused again.
+  }
+
+  function isBlockedShortcut(e){
+    const k=(e.key||'').toLowerCase();
+    return k==='printscreen' ||
+      (e.ctrlKey && ['p','s','u'].includes(k)) ||
+      (e.ctrlKey && e.shiftKey && ['s','i','j','c'].includes(k)) ||
+      k==='f12';
+  }
+
+  document.addEventListener('keydown',e=>{
+    if(isBlockedShortcut(e)){
+      e.preventDefault();
+      e.stopPropagation();
+      showShield();
+    }
+  },true);
+
+  document.addEventListener('keyup',e=>{
+    if((e.key||'').toLowerCase()==='printscreen'){
+      e.preventDefault();
+      e.stopPropagation();
+      showShield();
+    }
+  },true);
+
+  document.addEventListener('contextmenu',e=>{
+    e.preventDefault();
+    showShield();
+  },true);
+
+  function handleFocusLoss(){
+    if(!document.hasFocus()) showShield();
+  }
+
+  window.addEventListener('blur',handleFocusLoss,true);
+  window.addEventListener('pagehide',()=>setProtected(true),true);
+
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='hidden') showShield();
+    else if(document.visibilityState==='visible' && document.hasFocus()) setProtected(false);
+  },true);
+
+  window.addEventListener('focus',()=>setProtected(false),true);
+
+  // Some Chromium capture paths do not fire a normal blur event immediately.
+  // Polling hasFocus closes that gap without affecting normal page navigation.
+  setInterval(()=>{
+    if(!document.hasFocus()) showShield();
+    else if(document.visibilityState==='visible' && protectedNow) setProtected(false);
+  },250);
+})();
+
+</script>
+</body>
+</html>
