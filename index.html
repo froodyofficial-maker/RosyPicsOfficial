@@ -197,22 +197,25 @@ body:before{
   margin:10px 0 72px;
 }
 .green-btn{
-  border:0;
+  border:1px solid rgba(255,255,255,.10);
   color:white;
-  background:linear-gradient(180deg,#0e5d1b,#0b5016);
-  border-radius:45px;
-  padding:17px 55px;
-  min-width:173px;
+  background:linear-gradient(180deg,rgba(16,104,31,.96),rgba(8,82,23,.96));
+  border-radius:999px;
+  padding:15px 30px;
+  min-width:0;
   font-weight:800;
-  font-size:31px;
-  transition:transform .2s ease,filter .2s ease,box-shadow .2s ease;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 8px 24px rgba(0,70,15,.16);
+  transition:transform .2s ease,filter .2s ease,box-shadow .2s ease,background .2s ease;
 }
 .green-btn:hover{
-  transform:translateY(-3px) scale(1.02);
-  filter:brightness(1.12);
-  box-shadow:0 13px 30px rgba(0,100,20,.25);
+  transform:translateY(-2px);
+  filter:brightness(1.08);
+  background:linear-gradient(180deg,rgba(18,116,35,.98),rgba(8,91,25,.98));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 12px 28px rgba(0,128,0,.24);
 }
-.green-btn:active{transform:scale(.98)}
+.green-btn:active{transform:translateY(0) scale(.98)}
 
 .subpage h1{
   font-size:58px;
@@ -513,7 +516,26 @@ body:before{
 .book-sheet{padding:28px;display:flex;flex-direction:column;justify-content:center;align-items:center;border-right:1px solid #d2cbbb;position:relative}.book-sheet:last-child{border-right:0}
 .book-sheet img{width:100%;max-height:500px;object-fit:contain;box-shadow:0 10px 28px rgba(0,0,0,.18)}
 .book-caption{font-family:Georgia,serif;margin-top:14px;font-size:16px;color:#555;text-align:center}.book-number{position:absolute;bottom:12px;font-family:Georgia,serif;color:#888;font-size:12px}
-.book-controls{display:flex;justify-content:center;align-items:center;gap:15px;margin-top:18px}.book-controls span{color:#aaa;font-weight:800}
+.book-controls{display:flex;justify-content:center;align-items:center;gap:15px;margin-top:18px;flex-wrap:wrap}.book-controls span{color:#aaa;font-weight:800}
+.book-theme-picker{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+.book-theme-picker strong{font-size:14px;color:#aaa;margin-right:4px}
+.book-theme{border:1px solid #383838;background:#171717;color:#bbb;border-radius:8px;padding:9px 13px;font-weight:800;cursor:pointer;transition:.2s}
+.book-theme:hover{border-color:#777;color:#fff;transform:translateY(-1px)}
+.book-theme.active{border-color:#ffb800;color:#fff;box-shadow:0 0 0 2px rgba(255,184,0,.12)}
+.book-stage.theme-dark{--book-bg:#151515;--book-text:#f4f4f4;--book-border:#2d2d2d;--book-caption:#aaa;--book-number:#666}
+.book-stage.theme-cream{--book-bg:#f2eee3;--book-text:#171717;--book-border:#d2cbbb;--book-caption:#555;--book-number:#888}
+.book-stage.theme-green{--book-bg:#0e3a18;--book-text:#f7fff8;--book-border:#276537;--book-caption:#b9d6bf;--book-number:#79a584}
+.book-stage.theme-graphite{--book-bg:#252525;--book-text:#f5f5f5;--book-border:#414141;--book-caption:#bdbdbd;--book-number:#777}
+.book-stage.theme-dark,.book-stage.theme-cream,.book-stage.theme-green,.book-stage.theme-graphite{background:linear-gradient(135deg,#171717,#0b0b0b);border-color:#2f2f2f}
+.book-stage .book-page{background:var(--book-bg);color:var(--book-text)}
+.book-stage .book-sheet{border-color:var(--book-border)}
+.book-stage .book-caption{font-family:Inter,Arial,sans-serif;color:var(--book-caption);font-weight:700;letter-spacing:.1px}
+.book-stage .book-number{font-family:Inter,Arial,sans-serif;color:var(--book-number)}
+.book-stage .book-end{font-family:Inter,Arial,sans-serif;color:var(--book-caption)!important;font-weight:800}
+.thanks-order-list{margin-top:28px;display:grid;gap:10px;max-width:760px}
+.thanks-order-item{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:14px;padding:12px 14px;background:#1b1b1b;border:1px solid #303030;border-radius:12px}
+.thanks-order-item img{width:58px;height:58px;object-fit:cover;border-radius:9px}
+.thanks-order-item strong{display:block;font-size:16px}.thanks-order-item span{color:#888;font-size:13px}.thanks-order-price{font-weight:800;color:#fff}
 .collector-profile-badge{display:inline-flex;align-items:center;gap:7px;background:#ffb800;color:#111;border-radius:999px;padding:8px 13px;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-left:12px;vertical-align:middle}
 .code-copy-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.copy-code-btn{border:1px solid #444;background:#222;color:#fff;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:800;cursor:pointer}.copy-code-btn:hover{border-color:#777;background:#2a2a2a}
 .cc-email-note{margin-top:14px;padding:13px 15px;background:#101010;border:1px solid #2c2c2c;border-radius:13px;color:#aaa;font-size:14px;line-height:1.45}.cc-email-note strong{color:#fff}
@@ -577,6 +599,24 @@ input, textarea{
 }
 .capture-protected{}
 /* Blur the actual site layers, NOT <body>. This keeps the protection shield crisp. */
+
+/* 4K Enhancer */
+.enhancer-shell,.viewer-shell{max-width:1100px}
+.tool-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;margin-top:38px}
+.tool-panel{background:#151515;border:1px solid #292929;border-radius:24px;padding:28px;box-shadow:0 18px 60px rgba(0,0,0,.24)}
+.tool-panel h2{font-size:27px;margin:0 0 8px;letter-spacing:-.7px}.tool-panel p{color:#aaa;line-height:1.5;margin:0 0 20px}
+.tool-upload{min-height:250px;border:1px dashed #4a4a4a;border-radius:20px;background:linear-gradient(145deg,#181818,#111);display:grid;place-items:center;text-align:center;padding:30px;transition:.2s ease;cursor:pointer}
+.tool-upload:hover,.tool-upload.drag{border-color:#777;background:#1b1b1b;transform:translateY(-2px)}
+.tool-upload input{display:none}.tool-upload strong{color:#ffb800}.tool-preview{min-height:250px;border-radius:18px;background:#080808;display:grid;place-items:center;overflow:hidden;border:1px solid #252525}.tool-preview img{max-height:430px;width:100%;object-fit:contain}.tool-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#999;font-size:14px;margin-top:13px}.tool-controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:20px}.tool-select{background:#1c1c1c;color:#fff;border:1px solid #393939;border-radius:999px;padding:12px 16px;outline:none}.tool-note{font-size:13px!important;color:#777!important;margin-top:16px!important}
+.enhance-result{margin-top:28px;display:none}.enhance-result.show{display:block}.enhance-progress{height:8px;background:#242424;border-radius:999px;overflow:hidden;margin:15px 0}.enhance-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#0d5b1b,#39a950);transition:width .25s ease}
+/* 3D viewer */
+.viewer-stage{height:570px;margin-top:28px;border-radius:26px;border:1px solid #292929;background:radial-gradient(circle at 50% 38%,#222 0,#111 45%,#080808 100%);display:grid;place-items:center;overflow:hidden;position:relative;perspective:1100px;touch-action:none}
+.viewer-floor{position:absolute;bottom:-170px;width:620px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,184,0,.13),transparent 65%);filter:blur(20px);pointer-events:none}
+.viewer-card{width:min(430px,62vw);aspect-ratio:3/4;position:relative;transform-style:preserve-3d;cursor:grab;transition:box-shadow .2s ease;user-select:none}
+.viewer-card:active{cursor:grabbing}.viewer-face{position:absolute;inset:0;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.16);backface-visibility:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.viewer-front{background:#050505}.viewer-front img{width:100%;height:100%;object-fit:cover;pointer-events:none}.viewer-back{transform:rotateY(180deg);background:linear-gradient(145deg,#191919,#090909);display:grid;place-items:center;text-align:center;padding:30px}.viewer-back b{font-size:44px;letter-spacing:-3px}.viewer-back span{color:#aaa;margin-top:10px}.viewer-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px);padding:10px 15px;border-radius:999px;color:#ccc;font-size:13px;white-space:nowrap}.viewer-controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}.viewer-stat{text-align:center;color:#777;font-size:13px;margin-top:12px}
+@media(max-width:900px){.nav-links{gap:18px}.nav-link{font-size:16px}.tool-grid{grid-template-columns:1fr}.viewer-stage{height:470px}}
+
 body.capture-protected > .nav,
 body.capture-protected > #app,
 body.capture-protected > .toast{
@@ -618,6 +658,8 @@ body.capture-protected > .toast{
   </div>
   <nav class="nav-links">
     <button class="nav-link" data-page="mypics">MyPics</button>
+    <button class="nav-link" data-page="enhancer">4K Enhancer</button>
+    <button class="nav-link" data-page="viewer3d">3D Viewer</button>
     <button class="nav-link" data-page="cg">Custom CG</button>
     <button class="nav-link" data-page="pictures">Pictures</button>
     <button class="nav-link" data-page="giftshop">Gift Shop</button>
@@ -678,6 +720,7 @@ const state={
   albums:JSON.parse(localStorage.getItem('rosypics-albums')||'[]'),
   activeAlbumId:null,
   bookPage:0,
+  bookTheme:localStorage.getItem('rosypics-book-theme')||'dark',
   collector:localStorage.getItem('rosypics-collector')==='1'
 };
 
@@ -717,7 +760,7 @@ function giftAmount(item){
   const m=String(item?.name||'').match(/₹\s*([0-9,]+)/);
   return m ? Number(m[1].replace(/,/g,'')) : 0;
 }
-function save(){localStorage.setItem('rosypics-cart',JSON.stringify(state.cart));localStorage.setItem('rosypics-purchased-photos',JSON.stringify(state.purchasedPhotos));localStorage.setItem('rosypics-purchased-bundles',JSON.stringify(state.purchasedBundles));localStorage.setItem('rosypics-orders',JSON.stringify(state.orders));localStorage.setItem('rosypics-gift-balance',String(state.giftBalance));localStorage.setItem('rosypics-gift-cards',JSON.stringify(state.giftCards));localStorage.setItem('rosypics-albums',JSON.stringify(state.albums||[]));localStorage.setItem('rosypics-collector',state.collector?'1':'0');if(state.email)localStorage.setItem('rosypics-email',state.email)}
+function save(){localStorage.setItem('rosypics-cart',JSON.stringify(state.cart));localStorage.setItem('rosypics-purchased-photos',JSON.stringify(state.purchasedPhotos));localStorage.setItem('rosypics-purchased-bundles',JSON.stringify(state.purchasedBundles));localStorage.setItem('rosypics-orders',JSON.stringify(state.orders));localStorage.setItem('rosypics-gift-balance',String(state.giftBalance));localStorage.setItem('rosypics-gift-cards',JSON.stringify(state.giftCards));localStorage.setItem('rosypics-albums',JSON.stringify(state.albums||[]));localStorage.setItem('rosypics-collector',state.collector?'1':'0');localStorage.setItem('rosypics-book-theme',state.bookTheme||'dark');if(state.email)localStorage.setItem('rosypics-email',state.email)}
 const CC_EMAIL='froodyofficial@gmail.com';
 function copyGiftCode(code){
   const done=()=>toast('Gift card code copied');
@@ -768,13 +811,21 @@ function albumTabHtml(){
     ${active?`<div class="album-dropzone" id="album-dropzone"><h3>Organizing: ${escapeHtml(active.name)}</h3><p>Drop a photo here to add it. Drag photos inside the album to reorder them.</p><div class="album-items">${active.items.length?active.items.map(id=>{const x=assets.find(y=>y.id===id);return x?`<div class="album-item" draggable="true" data-album-item="${x.id}" data-album-id="${active.id}"><img src="${x.url}" alt="${x.name}"><div class="album-item-copy">${escapeHtml(x.name)} <button class="remove-btn" data-remove-album-item="${x.id}" data-album-id="${active.id}">Remove</button></div></div>`:''}).join(''):`<div class="album-empty" style="grid-column:1/-1">Drop photos here to start your book.</div>`}</div></div><h3 style="margin:30px 0 0">Your Collection — drag into the album</h3><div class="collection-strip">${assets.map(x=>`<div class="collection-tile" draggable="true" data-asset-id="${x.id}"><img src="${x.url}" alt="${x.name}"><span>${escapeHtml(x.name)}</span>${active.items.includes(x.id)?'<b class="in-album">IN ALBUM</b>':''}</div>`).join('')}</div>`:''}`;
 }
 function escapeHtml(v){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function setBookTheme(theme){
+  if(!['dark','cream','green','graphite'].includes(theme))theme='dark';
+  state.bookTheme=theme;
+  localStorage.setItem('rosypics-book-theme',theme);
+  render();
+}
 function albumBook(){
   const album=getAlbum(state.activeAlbumId),assets=libraryAssets();
   if(!album)return `<section class="subpage"><button class="overview-back" onclick="go('mypics')">← Back to MyPics</button><div class="empty"><h2>Album not found</h2></div></section>`;
   const items=album.items.map(id=>assets.find(x=>x.id===id)).filter(Boolean);
   if(!items.length)return `<section class="subpage"><button class="overview-back" onclick="go('mypics')">← Back to MyPics</button><div class="empty"><h2>${escapeHtml(album.name)} is empty</h2><p>Add photos in the Album tab first.</p><button class="green-btn" onclick="go('mypics')">Organize Album</button></div></section>`;
   const pages=Math.ceil(items.length/2);state.bookPage=Math.max(0,Math.min(state.bookPage,pages-1));const left=items[state.bookPage*2],right=items[state.bookPage*2+1];
-  return `<section class="subpage"><button class="overview-back" onclick="go('mypics')">← Back to MyPics</button><div class="bundle-kicker">RosyPics Album</div><h1>${escapeHtml(album.name)}</h1><p class="subtitle">Your collection, arranged as a photo book.</p><div class="book-wrap"><div class="book-stage"><div class="book-page"><div class="book-sheet"><img src="${left.url}" alt="${left.name}"><div class="book-caption">${escapeHtml(left.name)}</div><div class="book-number">Page ${state.bookPage*2+1}</div></div><div class="book-sheet">${right?`<img src="${right.url}" alt="${right.name}"><div class="book-caption">${escapeHtml(right.name)}</div><div class="book-number">Page ${state.bookPage*2+2}</div>`:`<div style="font-family:Georgia,serif;color:#777;font-size:20px;text-align:center">The End</div>`}</div></div></div><div class="book-controls"><button class="download-btn" id="book-prev" ${state.bookPage===0?'disabled':''}>← Previous</button><span>Spread ${state.bookPage+1} / ${pages}</span><button class="download-btn" id="book-next" ${state.bookPage>=pages-1?'disabled':''}>Next →</button></div></div></section>`;
+  const theme=state.bookTheme||'dark';
+  const themes=[['dark','Rosy Dark'],['graphite','Graphite'],['green','Rosy Green'],['cream','Cream']];
+  return `<section class="subpage"><button class="overview-back" onclick="go('mypics')">← Back to MyPics</button><div class="bundle-kicker">RosyPics Album</div><h1>${escapeHtml(album.name)}</h1><p class="subtitle">Your collection, arranged as a photo book — styled your way.</p><div class="book-wrap"><div class="book-theme-picker"><strong>Book colour</strong>${themes.map(([id,label])=>`<button class="book-theme ${theme===id?'active':''}" onclick="setBookTheme('${id}')">${label}</button>`).join('')}</div><div class="book-stage theme-${theme}"><div class="book-page"><div class="book-sheet"><img src="${left.url}" alt="${left.name}"><div class="book-caption">${escapeHtml(left.name)}</div><div class="book-number">Page ${state.bookPage*2+1}</div></div><div class="book-sheet">${right?`<img src="${right.url}" alt="${right.name}"><div class="book-caption">${escapeHtml(right.name)}</div><div class="book-number">Page ${state.bookPage*2+2}</div>`:`<div class="book-end">The End</div>`}</div></div></div><div class="book-controls"><button class="download-btn" id="book-prev" ${state.bookPage===0?'disabled':''}>← Previous</button><span>Spread ${state.bookPage+1} / ${pages}</span><button class="download-btn" id="book-next" ${state.bookPage>=pages-1?'disabled':''}>Next →</button></div></div></section>`;
 }
 
 function updateCartCount(){const el=document.getElementById('cart-count');if(el)el.textContent=state.cart.length}
@@ -844,6 +895,8 @@ function render(){
   if(state.page==='midnight')html=midnightBundle();
   if(state.page==='interested')html=interestedBundle();
   if(state.page==='albumbook')html=albumBook();
+  if(state.page==='enhancer')html=enhancer();
+  if(state.page==='viewer3d')html=viewer3d();
   app.innerHTML='<div class="page enter">'+html+'</div>';
   navActive();
   updateCartCount();
@@ -875,6 +928,11 @@ return `
       <div class="underline"></div>
       <button class="green-btn buy-btn-small" id="buy-angry">Buy</button>
     </div>
+  </section>
+
+  <section class="tool-grid" style="margin-top:90px">
+    <div class="tool-panel"><h2>4K Enhancer</h2><p>Upload your own photo and create a 4K-ready version with high-quality scaling and finishing.</p><button class="green-btn" onclick="go('enhancer')">Open 4K Enhancer</button></div>
+    <div class="tool-panel"><h2>3D Viewer</h2><p>Upload a photo and explore it as a rotatable 3D photo card.</p><button class="green-btn" onclick="go('viewer3d')">Open 3D Viewer</button></div>
   </section>
 </div>`;
 }
@@ -986,11 +1044,7 @@ return `
   <div class="thanks-card">
     <h2>Confirmed Order</h2>
     <p>${state.lastOrder.map(x=>'1x '+x.name).join('<br>')}</p>${(state.orders[state.orders.length-1]?.giftCodes||[]).length?'<div style="margin-top:22px"><strong>Your Gift Card Code(s)</strong><br>'+(state.orders[state.orders.length-1].giftCodes.map(g=>`<div class="code-copy-row" style="margin-top:8px"><code style="display:inline-block;background:#222;padding:8px 12px;border-radius:9px;color:#ffb800">${g.code} · ₹${g.balance}</code><button class="copy-code-btn" onclick="copyGiftCode('${g.code}')">Copy</button></div>`).join('<br>'))+'</div>':''}
-    <div class="cart-graphic">
-      <div class="cart-frame"></div><div class="cart-handle"></div>
-      <div class="cart-wheel one"></div><div class="cart-wheel two"></div>
-    </div>
-    <div class="thanks-items">${state.lastOrder.map(x=>`<div><img src="${x.img}">${x.name.replace(' CC','')}</div>`).join('')}</div>
+    <div class="thanks-order-list">${state.lastOrder.map(x=>`<div class="thanks-order-item"><img src="${x.img}" alt="${x.name}"><div><strong>${x.name.replace(' CC','')}</strong><span>${x.gift?'Digital gift card · code issued instantly':(x.id==='angry'?'4K digital photo · instant access':(x.id==='midnight'?'Collector’s Edition · 2 photos':(x.id==='interested'?'3 photos + 3 Pop CC variants':'Custom colour grading · manual delivery')))}</span></div><div class="thanks-order-price">${money(x.price)}</div></div>`).join('')}</div>
     <div class="view-account" onclick="go('account')" style="cursor:pointer">View on account</div>
   </div>
 </section>`;
@@ -1001,7 +1055,7 @@ function mypics(){
   const hasMidnight=state.purchasedBundles.includes('midnight');
   const hasInterested=state.purchasedBundles.includes('interested');
   const downloads=`
-    ${owned.includes('angry') ? `<div class="gallery owned-gallery"><div class="gallery-card owned-card"><span class="product-preview-wrap"><img src="${IMG['angry-rosy.jpg']}" alt="Angry Rosy"></span><div><div><h2>Angry Rosy</h2><p>4K + Raw + Sunshine CC · watermark-free</p></div><div class="download-actions"><button class="download-btn" data-force-download="${ANGRY4K}" data-download-name="Angry-Rosy-4K.jpg">Download 4K</button><button class="download-btn" data-force-download="${ANGRY_RAW}" data-download-name="Angry-Rosy-Raw.png">Download Raw</button><button class="download-btn" data-force-download="${ANGRY_CC}" data-download-name="Angry-Rosy-Sunshine-CC.png">Download CC</button></div></div></div></div>` : ''}
+    ${owned.includes('angry') ? `<div class="gallery owned-gallery"><div class="gallery-card owned-card"><span class="product-preview-wrap"><img src="${ANGRY4K}" alt="Angry Rosy — 4K"></span><div><div><h2>Angry Rosy</h2><p>Purchased files · watermark-free</p></div><div class="download-actions" style="display:flex;gap:9px;flex-wrap:wrap"><button class="green-btn" data-force-download="${ANGRY4K}" data-download-name="Angry-Rosy-4K.jpg">Download Angry Rosy — 4K</button><button class="download-btn" data-force-download="${ANGRY_RAW}" data-download-name="Angry-Rosy-Raw.png">Raw</button><button class="download-btn" data-force-download="${ANGRY_CC}" data-download-name="Angry-Rosy-Sunshine-CC.png">Sunshine CC</button></div></div></div></div>` : ''}
     ${hasMidnight ? `<h2 class="orders-heading" style="margin-top:45px">Midnight with Rosy</h2><div class="bundle-my-pics"><div class="bundle-owned-card"><span><img src="${IMG['midnight-rosy-1.jpg']}" alt="Midnight with Rosy — Photo 1"></span><div class="bundle-owned-copy"><h3>Midnight with Rosy — Photo 1</h3><p>Original 4K file</p><button class="download-btn" data-force-download="${IMG['midnight-rosy-1.jpg']}" data-download-name="Midnight-with-Rosy-1.jpg">Download 4K</button></div></div><div class="bundle-owned-card"><span><img src="${IMG['midnight-rosy-2.jpg']}" alt="Midnight with Rosy — Photo 2"></span><div class="bundle-owned-copy"><h3>Midnight with Rosy — Photo 2</h3><p>Original 4K file</p><button class="download-btn" data-force-download="${IMG['midnight-rosy-2.jpg']}" data-download-name="Midnight-with-Rosy-2.jpg">Download 4K</button></div></div></div>` : ''}
     ${hasInterested ? `<h2 class="orders-heading" style="margin-top:45px">Interested Rosy Bundle</h2><p class="subtitle" style="margin-bottom:20px">Original photos and their Pop colour-graded variants — watermark-free because you own them.</p><div class="bundle-my-pics interested-owned-grid">${[1,2,3].map(n=>`<div class="bundle-owned-card"><span><img src="${IMG[`interested-${n}-raw.png`]}" alt="Interested Rosy — Photo ${n}"></span><div class="bundle-owned-copy"><h3>Interested Rosy — Photo ${n}</h3><p>Original + Pop CC · 4K</p><div class="download-actions" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="download-btn" data-force-download="${IMG[`interested-${n}-raw.png`]}" data-download-name="Interested-Rosy-${n}-Original.png">Original</button><button class="download-btn" data-force-download="${IMG[`interested-${n}-pop.png`]}" data-download-name="Interested-Rosy-${n}-Pop-CC.png">Pop CC</button></div></div></div>`).join('')}</div>` : ''}
     ${(!owned.includes('angry')&&!hasMidnight&&!hasInterested) ? `<div class="empty"><h2>No purchases yet</h2><p>Photos you buy will appear here instantly after payment.</p><button class="green-btn" onclick="go('pictures')">Browse pictures</button></div>` : ''}`;
@@ -1142,7 +1196,132 @@ function interestedBundle(){
   return `<section class="subpage bundle-page interested-page"><button class="bundle-back" onclick="go('pictures')">← Back to Pictures</button><div class="bundle-hero"><div><div class="bundle-kicker" style="margin-bottom:10px">Premium Collection</div><h2 style="font-size:42px;margin:0 0 25px;letter-spacing:-1.5px">Preview every photo in Original or Pop CC</h2><div class="interested-gallery">${pairs.map((p,i)=>{const isPop=state.interestedVariants[i]==='pop';const src=isPop?p.pop:p.raw;return `<article class="interested-preview-card"><div class="interested-preview-head"><span>Photo ${p.n}</span><strong>${isPop?'Pop CC':'Original'}</strong></div><span class="preview-watermark interested-preview"><img src="${src}" alt="Interested Rosy Photo ${p.n} ${isPop?'Pop CC':'Original'}"></span><div class="interested-switch"><button class="${!isPop?'active':''}" onclick="setInterestedVariant(${i},'raw')">Original</button><button class="${isPop?'active':''}" onclick="setInterestedVariant(${i},'pop')">Pop CC</button></div></article>`}).join('')}</div></div><aside class="bundle-details"><div class="bundle-kicker">RosyPics Collection</div><h1>Interested Rosy</h1><p class="lead">A three-photo collection of Rosy, with a separate Pop colour-graded version of every image. Six full-resolution files are included.</p><div class="bundle-price-row"><div class="bundle-price">₹179</div><div class="bundle-limited">3 PHOTOS<br>POP CC INCLUDED</div></div><ul class="bundle-features"><li>3 original 4K photos</li><li>3 Pop CC 4K variants</li><li>6 files included in total</li><li>Watermarked previews, clean downloads after purchase</li><li>Instant access in MyPics</li></ul><button class="green-btn bundle-buy" id="interested-buy">Add Collection to Cart — ₹179</button><p class="bundle-note">Preview images are watermarked. Your purchased files are delivered without the preview watermark.</p></aside></div></section>`;
 }
 
+
+function enhancer(){
+  return `<section class="subpage enhancer-shell">
+    <h1>4K Enhancer</h1>
+    <p class="subtitle">Upload your photo and create a clean 4K-ready version in your browser.</p>
+    <div class="tool-grid">
+      <div class="tool-panel">
+        <h2>Upload your photo</h2>
+        <p>Your original stays on your device. Choose a JPG, PNG or WebP image.</p>
+        <label class="tool-upload" id="enhance-upload">
+          <input id="enhance-file" type="file" accept="image/jpeg,image/png,image/webp">
+          <div><div style="font-size:48px;margin-bottom:12px">↑</div><strong>Choose an image</strong><br><span style="color:#888">or drag it here</span></div>
+        </label>
+        <div class="tool-meta"><span id="enhance-source">No image selected</span><span id="enhance-source-size"></span></div>
+        <div class="tool-controls">
+          <select id="enhance-mode" class="tool-select"><option value="fit">4K — fit inside 3840px</option><option value="wide">4K — long edge 3840px</option></select>
+          <button class="green-btn" id="enhance-run">Enhance to 4K</button>
+        </div>
+        <p class="tool-note">This version uses high-quality browser scaling and sharpening. It outputs a 4K-resolution file; true AI super-resolution would require a dedicated processing backend/model.</p>
+      </div>
+      <div class="tool-panel">
+        <h2>Preview</h2>
+        <div class="tool-preview" id="enhance-preview"><span style="color:#666">Your enhanced image will appear here.</span></div>
+        <div class="tool-meta"><span id="enhance-output-size">Output: —</span><span id="enhance-status">Ready</span></div>
+        <div class="enhance-result" id="enhance-result">
+          <div class="enhance-progress"><span id="enhance-progress-bar"></span></div>
+          <button class="green-btn" id="enhance-download">Download 4K Image</button>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function viewer3d(){
+  return `<section class="subpage viewer-shell">
+    <h1>3D Viewer</h1>
+    <p class="subtitle">Upload a photo and move it around like a little 3D display.</p>
+    <div class="tool-panel" style="margin-top:38px">
+      <label class="tool-upload" id="viewer-upload" style="min-height:170px">
+        <input id="viewer-file" type="file" accept="image/jpeg,image/png,image/webp">
+        <div><strong>Upload your image</strong><br><span style="color:#888">Drag, drop or click to choose a photo</span></div>
+      </label>
+      <div class="viewer-stage" id="viewer-stage">
+        <div class="viewer-floor"></div>
+        <div class="viewer-card" id="viewer-card">
+          <div class="viewer-face viewer-front"><div style="height:100%;display:grid;place-items:center;color:#666">Upload an image</div></div>
+          <div class="viewer-face viewer-back"><div><b>RP</b><span>RosyPics 3D</span></div></div>
+        </div>
+        <div class="viewer-hint">Drag to rotate · Wheel to zoom</div>
+      </div>
+      <div class="viewer-controls">
+        <button class="green-btn" id="viewer-reset">Reset View</button>
+        <button class="download-btn" id="viewer-auto">Auto Rotate</button>
+      </div>
+      <div class="viewer-stat" id="viewer-stat">No image loaded</div>
+      <p class="tool-note">This creates a 3D photo-card effect. It does not reconstruct hidden sides of a flat photograph into a true 3D model.</p>
+    </div>
+  </section>`;
+}
+
+function initEnhancer(){
+  const input=document.getElementById('enhance-file');
+  const drop=document.getElementById('enhance-upload');
+  const run=document.getElementById('enhance-run');
+  if(!input||!drop||!run)return;
+  let sourceFile=null,sourceImg=null,outputBlob=null;
+  const loadFile=file=>{
+    if(!file || !file.type.startsWith('image/')){toast('Please choose an image file');return}
+    sourceFile=file;
+    const url=URL.createObjectURL(file),img=new Image();
+    img.onload=()=>{sourceImg=img;document.getElementById('enhance-source').textContent=file.name;document.getElementById('enhance-source-size').textContent=`${img.naturalWidth} × ${img.naturalHeight}`;document.getElementById('enhance-preview').innerHTML=`<img src="${url}" alt="Enhancer preview">`;document.getElementById('enhance-status').textContent='Image loaded';URL.revokeObjectURL(url)};
+    img.onerror=()=>toast('Could not read that image');img.src=url;
+  };
+  input.onchange=e=>loadFile(e.target.files[0]);
+  ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));
+  drop.addEventListener('drop',e=>loadFile(e.dataTransfer.files[0]));
+  run.onclick=async()=>{
+    if(!sourceImg){toast('Upload an image first');return}
+    const mode=document.getElementById('enhance-mode').value;
+    const w=sourceImg.naturalWidth,h=sourceImg.naturalHeight;
+    let scale=mode==='wide'?3840/Math.max(w,h):3840/Math.max(w,h);
+    if(scale<1)scale=1;
+    let outW=Math.round(w*scale),outH=Math.round(h*scale);
+    if(mode==='fit'){outW=Math.min(outW,3840);outH=Math.min(outH,3840)}
+    if(outW<3840 && outH<3840){const extra=3840/Math.max(outW,outH);outW=Math.round(outW*extra);outH=Math.round(outH*extra)}
+    const maxCanvas=3840; if(Math.max(outW,outH)>maxCanvas){const k=maxCanvas/Math.max(outW,outH);outW=Math.round(outW*k);outH=Math.round(outH*k)}
+    const canvas=document.createElement('canvas');canvas.width=outW;canvas.height=outH;const ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+    const bar=document.getElementById('enhance-progress-bar');document.getElementById('enhance-result').classList.add('show');bar.style.width='15%';document.getElementById('enhance-status').textContent='Scaling…';
+    await new Promise(r=>requestAnimationFrame(r));
+    ctx.drawImage(sourceImg,0,0,outW,outH);bar.style.width='70%';document.getElementById('enhance-status').textContent='Applying finishing sharpen…';
+    await new Promise(r=>requestAnimationFrame(r));
+    // Lightweight unsharp pass for a crisper presentation without inventing detail.
+    const smallW=Math.max(1,Math.round(outW*.18)),smallH=Math.max(1,Math.round(outH*.18));
+    const small=document.createElement('canvas');small.width=smallW;small.height=smallH;const sctx=small.getContext('2d');sctx.imageSmoothingEnabled=true;sctx.imageSmoothingQuality='high';sctx.drawImage(canvas,0,0,smallW,smallH);
+    ctx.globalAlpha=.14;ctx.drawImage(small,0,0,outW,outH);ctx.globalAlpha=1;
+    bar.style.width='100%';
+    outputBlob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',.96));
+    document.getElementById('enhance-preview').innerHTML=`<img src="${URL.createObjectURL(outputBlob)}" alt="Enhanced 4K result">`;
+    document.getElementById('enhance-output-size').textContent=`Output: ${outW} × ${outH}`;
+    document.getElementById('enhance-status').textContent='4K ready';
+    toast('4K image ready');
+  };
+  document.getElementById('enhance-download').onclick=()=>{if(!outputBlob){toast('Enhance an image first');return}const a=document.createElement('a');a.href=URL.createObjectURL(outputBlob);a.download=(sourceFile?.name||'rosypics-image').replace(/\.[^.]+$/,'')+'-4K.jpg';document.body.appendChild(a);a.click();a.remove();toast('4K download started')};
+}
+
+function initViewer3D(){
+  const input=document.getElementById('viewer-file'),drop=document.getElementById('viewer-upload'),stage=document.getElementById('viewer-stage'),card=document.getElementById('viewer-card');
+  if(!input||!drop||!stage||!card)return;
+  let rx=-8,ry=0,scale=1,dragging=false,lastX=0,lastY=0,auto=false,raf=0;
+  const apply=()=>{card.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg) scale(${scale})`};apply();
+  const load=file=>{if(!file||!file.type.startsWith('image/')){toast('Please choose an image file');return}const url=URL.createObjectURL(file);card.querySelector('.viewer-front').innerHTML=`<img src="${url}" alt="3D photo">`;document.getElementById('viewer-stat').textContent=file.name;toast('Image loaded into 3D viewer')};
+  input.onchange=e=>load(e.target.files[0]);
+  ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>load(e.dataTransfer.files[0]));
+  stage.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;stage.setPointerCapture(e.pointerId)});
+  stage.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;ry+=dx*.45;rx-=dy*.45;rx=Math.max(-75,Math.min(75,rx));apply()});
+  stage.addEventListener('pointerup',()=>dragging=false);stage.addEventListener('pointercancel',()=>dragging=false);
+  stage.addEventListener('wheel',e=>{e.preventDefault();scale+=e.deltaY<0?.08:-.08;scale=Math.max(.65,Math.min(1.55,scale));apply()},{passive:false});
+  document.getElementById('viewer-reset').onclick=()=>{rx=-8;ry=0;scale=1;apply()};
+  document.getElementById('viewer-auto').onclick=()=>{auto=!auto;document.getElementById('viewer-auto').textContent=auto?'Stop Auto Rotate':'Auto Rotate';if(auto)spin()};
+  function spin(){if(!auto)return;ry+=.35;apply();raf=requestAnimationFrame(spin)}
+}
+
 function bindPage(){
+  if(state.page==='enhancer')initEnhancer();
+  if(state.page==='viewer3d')initViewer3D();
   const angry=document.getElementById('buy-angry');
   if(angry)angry.onclick=()=>addCart('angry');
   document.querySelectorAll('[data-style]').forEach(b=>b.onclick=()=>{state.selectedCG=b.dataset.style;render()});
@@ -1243,13 +1422,53 @@ function sendCCOrderEmail(order){
   if(files.length!==ccItems.length){toast('Please attach the image for each Custom CC order');return false;}
   const totalBytes=files.reduce((n,x)=>n+x.file.size,0);
   if(totalBytes>10*1024*1024){toast('CC attachments are too large. Please keep the total under 10 MB.');return false;}
-  const form=document.createElement('form');form.method='POST';form.action='https://formsubmit.co/froodyofficial@gmail.com';form.enctype='multipart/form-data';form.target='rosypics-mail-frame';form.style.position='fixed';form.style.left='-10000px';form.style.top='-10000px';form.style.width='1px';form.style.height='1px';form.style.opacity='0';
+  // Submit as a real multipart/form-data HTML form. FormSubmit's documented
+  // file-upload endpoint expects native file inputs; using the same field name
+  // for each attachment keeps multiple uploads in the same email.
+  let mailFrame=document.getElementById('rosypics-mail-frame');
+  if(!mailFrame){
+    mailFrame=document.createElement('iframe');
+    mailFrame.name='rosypics-mail-frame';
+    mailFrame.id='rosypics-mail-frame';
+    mailFrame.style.position='fixed';
+    mailFrame.style.left='-10000px';
+    mailFrame.style.top='-10000px';
+    mailFrame.style.width='1px';
+    mailFrame.style.height='1px';
+    mailFrame.style.border='0';
+    document.body.appendChild(mailFrame);
+  }
+  const form=document.createElement('form');
+  form.method='POST';
+  form.action='https://formsubmit.co/froodyofficial@gmail.com';
+  form.enctype='multipart/form-data';
+  form.encoding='multipart/form-data';
+  form.target='rosypics-mail-frame';
+  form.style.position='fixed';
+  form.style.left='-10000px';
+  form.style.top='-10000px';
+  form.style.width='1px';
+  form.style.height='1px';
+  form.style.opacity='0';
   const fields={_subject:`RosyPics Custom CC Order ${order.id}`,email:order.email,order_id:order.id,customer_email:order.email,order_items:ccItems.map(x=>x.name).join(', '),message:`New RosyPics Custom Colour Grading order.\nOrder: ${order.id}\nCustomer: ${order.email}\nItems: ${ccItems.map(x=>x.name).join(', ')}\nTotal: ₹${order.total}\nPlease colour-grade the attached image(s) and send the finished file(s) back to the customer.`};
   Object.entries(fields).forEach(([name,value])=>{const i=document.createElement('input');i.type='hidden';i.name=name;i.value=value;form.appendChild(i)});
   const template=document.createElement('input');template.type='hidden';template.name='_template';template.value='table';form.appendChild(template);
   const captcha=document.createElement('input');captcha.type='hidden';captcha.name='_captcha';captcha.value='true';form.appendChild(captcha);
-  files.forEach((x,i)=>{const input=document.createElement('input');input.type='file';input.name=`attachment_${i+1}`;const dt=new DataTransfer();dt.items.add(x.file);input.files=dt.files;form.appendChild(input)});
-  document.body.appendChild(form);form.submit();setTimeout(()=>form.remove(),5000);toast('CC order sent to '+CC_EMAIL);return true;
+  files.forEach((x,i)=>{
+    const input=document.createElement('input');
+    input.type='file';
+    input.name='attachment';
+    input.accept='image/*';
+    const dt=new DataTransfer();
+    dt.items.add(x.file);
+    input.files=dt.files;
+    form.appendChild(input);
+  });
+  document.body.appendChild(form);
+  form.submit();
+  setTimeout(()=>form.remove(),15000);
+  toast('CC order sent with image attachment to '+CC_EMAIL);
+  return true;
 }
 function checkoutDemo(){
   const email=document.getElementById('email')?.value.trim();
@@ -1366,8 +1585,9 @@ render();
   document.addEventListener('keydown',e=>{
     if(isBlockedShortcut(e)){
       e.preventDefault();
-      e.stopPropagation();
+      e.stopImmediatePropagation();
       showShield();
+      void shield.offsetHeight;
     }
   },true);
 
@@ -1390,6 +1610,8 @@ render();
 
   window.addEventListener('blur',handleFocusLoss,true);
   window.addEventListener('pagehide',()=>setProtected(true),true);
+  window.addEventListener('beforeprint',()=>setProtected(true),true);
+  document.addEventListener('pointerdown',()=>{ if(!document.hasFocus()) showShield(); },true);
 
   document.addEventListener('visibilitychange',()=>{
     if(document.visibilityState==='hidden') showShield();
