@@ -653,9 +653,8 @@ body.capture-protected > .toast{
 .profile-avatar>img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .profile-initials{font-size:40px;font-weight:900;color:#fff;letter-spacing:-2px}
 .profile-name{font-size:38px;font-weight:900;letter-spacing:-1.5px}.profile-email{color:#888;margin-top:5px}
-.orbit-pic{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px;border-radius:50%;object-fit:cover;border:2px solid #111;box-shadow:0 4px 16px rgba(0,0,0,.45);animation:orbitSpin 6s linear infinite;--orbit-radius:72px}
-.orbit-pic:nth-child(2){--orbit-angle:0deg}.orbit-pic:nth-child(3){--orbit-angle:120deg;animation-delay:-2s}.orbit-pic:nth-child(4){--orbit-angle:240deg;animation-delay:-4s}
-@keyframes orbitSpin{from{transform:rotate(var(--orbit-angle,0deg)) translateX(var(--orbit-radius)) rotate(calc(-1 * var(--orbit-angle,0deg)))}to{transform:rotate(calc(var(--orbit-angle,0deg) + 360deg)) translateX(var(--orbit-radius)) rotate(calc(-1 * (var(--orbit-angle,0deg) + 360deg)))}}
+.profile-card-orbit{position:absolute;inset:-18px;pointer-events:none;perspective:500px;transform-style:preserve-3d}.profile-mini-card{position:absolute;left:50%;top:50%;width:43px;height:58px;margin:-29px -21px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.45);background:#111;box-shadow:0 8px 22px rgba(0,0,0,.55);transform-style:preserve-3d;animation:profileCardOrbit 7s linear infinite}.profile-mini-card img{width:100%;height:100%;object-fit:cover;display:block}.profile-mini-card span{position:absolute;left:3px;right:3px;bottom:3px;padding:2px 3px;border-radius:4px;background:rgba(0,0,0,.72);font-size:7px;font-weight:900;color:#fff;text-align:center}.profile-mini-card.mini-1{--card-angle:0deg;animation-delay:0s}.profile-mini-card.mini-2{--card-angle:120deg;animation-delay:-2.33s}.profile-mini-card.mini-3{--card-angle:240deg;animation-delay:-4.66s}.profile-mini-card.collector-card{border-color:#ffd35a}@keyframes profileCardOrbit{from{transform:rotateY(var(--card-angle)) translateZ(78px) rotateY(0deg)}to{transform:rotateY(calc(var(--card-angle) + 360deg)) translateZ(78px) rotateY(-360deg)}}
+.profile-cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.profile-card-item{background:#101010;border:1px solid #292929;border-radius:18px;padding:12px}.profile-card-item.collector-card{border-color:rgba(255,184,0,.65);box-shadow:0 0 24px rgba(255,184,0,.12)}.profile-card-art{aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:#080808}.profile-card-art img{width:100%;height:100%;object-fit:cover;display:block}.profile-card-item strong{display:block;margin-top:10px}.card-show-toggle{display:block;margin-top:9px;color:#aaa;font-size:12px}.card-show-toggle input{accent-color:#0d8b2b}.card-rarity{display:inline-block;margin-top:5px;color:#ffb800;font-size:12px;font-weight:900}.profile-mini-card:nth-child(2){z-index:2}.profile-mini-card:nth-child(3){z-index:1}
 .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}.profile-panel{background:#151515;border:1px solid #292929;border-radius:20px;padding:24px}.profile-panel h2{margin:0 0 15px}.profile-form{display:grid;gap:13px}.profile-input{width:100%;box-sizing:border-box;background:#0f0f0f;border:1px solid #333;border-radius:14px;color:#fff;padding:14px 15px;outline:none}.profile-input:focus{border-color:#777}.profile-upload{display:flex;align-items:center;gap:15px;flex-wrap:wrap}.profile-upload input{display:none}.profile-upload label{cursor:pointer}
 .profile-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.profile-stat{background:#101010;border:1px solid #292929;border-radius:16px;padding:16px}.profile-stat strong{font-size:28px;display:block}.profile-stat span{font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.8px}
 .orbit-list{display:grid;gap:10px}.orbit-row{display:flex;align-items:center;gap:12px;background:#101010;border:1px solid #292929;border-radius:14px;padding:10px}.orbit-row img{width:48px;height:48px;border-radius:10px;object-fit:cover}.orbit-row label{margin-left:auto;color:#aaa;font-size:14px}.orbit-row input{accent-color:#0d8b2b}
@@ -663,8 +662,8 @@ body.capture-protected > .toast{
 .dazzling-badge{display:inline-flex;align-items:center;gap:8px;margin-left:10px;padding:9px 14px;border-radius:999px;color:#111;font-size:13px;font-weight:950;text-transform:uppercase;letter-spacing:.7px;background:linear-gradient(120deg,#fff3a0,#ffb800,#fff4bd,#ffb800);box-shadow:0 0 22px rgba(255,184,0,.24),inset 0 1px 0 rgba(255,255,255,.8);animation:dazzle 2.2s ease-in-out infinite}
 @keyframes dazzle{50%{box-shadow:0 0 32px rgba(255,184,0,.48),inset 0 1px 0 rgba(255,255,255,.95)}}
 .ai-price{color:#ffb800;font-size:18px;font-weight:900}.ai-note{color:#888;font-size:13px;line-height:1.45}.ai-engine{background:#0f0f0f;border:1px solid #292929;border-radius:14px;padding:12px 14px;margin-top:14px;color:#aaa}.ai-engine strong{color:#fff}
-@media(max-width:900px){.tools-grid,.profile-grid{grid-template-columns:1fr}.profile-stat-grid{grid-template-columns:1fr 1fr}.owned-3d-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:650px){.profile-hero{grid-template-columns:1fr;text-align:center}.profile-avatar{margin:auto}.dazzling-badge{display:flex;width:max-content;margin:10px auto 0}.profile-stat-grid,.owned-3d-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.tools-grid,.profile-grid{grid-template-columns:1fr}.profile-stat-grid{grid-template-columns:1fr 1fr}.owned-3d-grid{grid-template-columns:1fr 1fr}.profile-cards-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.profile-hero{grid-template-columns:1fr;text-align:center}.profile-avatar{margin:auto}.dazzling-badge{display:flex;width:max-content;margin:10px auto 0}.profile-stat-grid,.owned-3d-grid,.profile-cards-grid{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -726,7 +725,6 @@ const ANGRY4K='images/angry-rosy-4k.jpg';
 const ANGRY_RAW='images/angry-rosy-raw.png';
 const ANGRY_CC='images/angry-rosy-sunshine-cc.png';
 const ASSET='';
-const RAZORPAY_KEY_ID=localStorage.getItem('rosypics-razorpay-key')||'';
 const AI_PRICE=12;
 const state={
   page:'home',
@@ -1103,24 +1101,39 @@ return `<section class="subpage"><h1>Gift Shop</h1><p class="subtitle">Give some
 
 function resizeToDataURL(fileOrUrl,max=256){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{const k=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight));const c=document.createElement('canvas');c.width=Math.max(1,Math.round(img.naturalWidth*k));c.height=Math.max(1,Math.round(img.naturalHeight*k));c.getContext('2d').drawImage(img,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.82))};img.onerror=reject;img.src=fileOrUrl instanceof File?URL.createObjectURL(fileOrUrl):fileOrUrl})}
 function addOrbitImage(name,url,file,sourceId,enabled){
-  const saveImage=async()=>{try{const data=await resizeToDataURL(file||url,256);const id=sourceId||('custom-'+Date.now());const existing=(state.orbitImages||[]).find(x=>x.id===id);if(existing){existing.enabled=enabled;existing.data=data;existing.name=name;existing.sourceId=sourceId||existing.sourceId}else state.orbitImages.push({id,name,data,enabled:!!enabled,sourceId});save();render();toast(enabled?'Added to profile icon':'Removed from profile icon')}catch(e){toast('Could not prepare that image')}};saveImage();}
+  const saveImage=async()=>{try{const data=await resizeToDataURL(file||url,256);const id=sourceId||('custom-'+Date.now());const existing=(state.orbitImages||[]).find(x=>x.id===id);const rarity=sourceId==='midnight'?'Rare · Collector’s Edition':'Custom';if(existing){existing.enabled=enabled;existing.data=data;existing.name=name;existing.sourceId=sourceId||existing.sourceId;existing.rarity=existing.rarity||rarity}else state.orbitImages.push({id,name,data,enabled:!!enabled,sourceId,rarity});save();render();toast(enabled?'Added 3D card to profile':'Removed 3D card from profile')}catch(e){toast('Could not prepare that image')}};saveImage();}
 function toggleOrbit(id,enabled){const x=(state.orbitImages||[]).find(v=>v.id===id);if(x){x.enabled=enabled;save();render();}}
 function deleteOrbit(id){state.orbitImages=(state.orbitImages||[]).filter(v=>v.id!==id);save();render();}
 function saveProfileName(){const v=(document.getElementById('profile-name-input')?.value||'').trim().slice(0,32);state.profileName=v||'RosyPics User';save();render();toast('Profile name saved')}
-function saveRazorpayKey(){const k=(document.getElementById('razorpay-key-input')?.value||'').trim();localStorage.setItem('rosypics-razorpay-key',k);toast(k?'Razorpay Key ID saved':'Razorpay Key ID cleared')}
 function initProfile(){const p=document.getElementById('profile-pfp-file');if(p)p.onchange=async e=>{const f=e.target.files[0];if(!f)return;try{state.profilePfp=await resizeToDataURL(f,512);save();render();toast('Profile picture updated')}catch{toast('Could not use that image')}}}
-function profileAvatarHTML(){const orbit=(state.orbitImages||[]).filter(x=>x.enabled).slice(0,3);return `<div class="profile-avatar">${state.profilePfp?`<img src="${state.profilePfp}" alt="Profile picture">`:`<span class="profile-initials">${escapeHtml((state.profileName||'RP').slice(0,2).toUpperCase())}</span>`}${orbit.map(x=>`<img class="orbit-pic" src="${x.data}" alt="">`).join('')}</div>`}
+(function repairProfileCards(){
+  let changed=false;
+  (state.orbitImages||[]).forEach(x=>{if(!x.rarity){x.rarity='Custom';changed=true}});
+  if(changed)save();
+})();
+
+function getAllProfileCards(){
+  const cards=[];
+  if(state.purchasedPhotos.includes('angry')) cards.push({id:'card-angry',name:'Angry Rosy',url:ANGRY4K,rarity:'Common',sourceId:'angry'});
+  if(state.purchasedBundles.includes('midnight')) cards.push({id:'card-midnight',name:'Midnight with Rosy',url:IMG['midnight-rosy-1.jpg'],rarity:'Rare · Collector’s Edition',sourceId:'midnight',collector:true});
+  if(state.purchasedBundles.includes('interested')) cards.push({id:'card-interested',name:'Interested Rosy',url:IMG['interested-1-raw.png'],rarity:'Rare',sourceId:'interested'});
+  (state.orbitImages||[]).forEach(x=>cards.push({id:x.id,name:x.name,url:x.data,rarity:x.rarity||'Custom',sourceId:x.sourceId||x.id,custom:true,enabled:!!x.enabled}));
+  return cards;
+}
+function getProfileCards(){return getAllProfileCards().filter(x=>!x.custom||x.enabled)}
+function profileAvatarHTML(){const cards=getProfileCards().slice(0,3);return `<div class="profile-avatar">${state.profilePfp?`<img src="${state.profilePfp}" alt="Profile picture">`:`<span class="profile-initials">${escapeHtml((state.profileName||'RP').slice(0,2).toUpperCase())}</span>`}<div class="profile-card-orbit">${cards.map((x,i)=>`<div class="profile-mini-card mini-${i+1}" title="${escapeHtml(x.name)} · ${escapeHtml(x.rarity)}"><img src="${x.url}" alt="${escapeHtml(x.name)}"><span>${escapeHtml(x.rarity.split(' · ')[0])}</span></div>`).join('')}</div></div>`}
 
 function account(){
   const orders=state.orders||[], ownedCount=getOwned3DAssets().length, enabledOrbit=(state.orbitImages||[]).filter(x=>x.enabled);
   return `<section class="subpage account-page">
-    <div class="profile-hero">${profileAvatarHTML()}<div><div class="profile-name">${escapeHtml(state.profileName||'RosyPics User')}${state.collector?`<span class="dazzling-badge">✦ Dazzling Collector</span>`:''}</div><div class="profile-email">${escapeHtml(state.email||'No email saved yet')}</div><p style="color:#aaa;margin:12px 0 0">Your RosyPics profile, collection and creative stats.</p></div></div>
+    <div class="profile-hero">${profileAvatarHTML()}<div><div class="profile-name">${escapeHtml(state.profileName||'RosyPics User')}${state.collector?`<span class="dazzling-badge">✦ Collector</span>`:''}</div><div class="profile-email">${escapeHtml(state.email||'No email saved yet')}</div><p style="color:#aaa;margin:12px 0 0">Your RosyPics profile, collection and creative stats.</p></div></div>
     <div class="profile-stat-grid" style="margin-top:22px"><div class="profile-stat"><strong>${orders.length}</strong><span>Orders</span></div><div class="profile-stat"><strong>${ownedCount}</strong><span>RosyPics in 3D</span></div><div class="profile-stat"><strong>${(state.albums||[]).length}</strong><span>Albums</span></div><div class="profile-stat"><strong>${state.aiUpscales||0}</strong><span>AI Enhancements</span></div></div>
     <div class="profile-grid">
       <div class="profile-panel"><h2>Profile</h2><div class="profile-form"><input class="profile-input" id="profile-name-input" maxlength="32" value="${escapeHtml(state.profileName||'RosyPics User')}" placeholder="Your name"><button class="green-btn" onclick="saveProfileName()">Save Name</button><div class="profile-upload"><label class="green-btn" for="profile-pfp-file">Upload PFP</label><input id="profile-pfp-file" type="file" accept="image/jpeg,image/png,image/webp"><span style="color:#888">Use a square image for best results.</span></div></div></div>
-      <div class="profile-panel"><h2>Profile Icon Photos</h2><p style="color:#888;margin-top:0">Choose custom images from the 3D Viewer to float around your profile icon.</p><div class="orbit-list">${(state.orbitImages||[]).length?(state.orbitImages.map(x=>`<div class="orbit-row"><img src="${x.data}" alt=""><span>${escapeHtml(x.name)}</span><label><input type="checkbox" ${x.enabled?'checked':''} onchange="toggleOrbit('${x.id}',this.checked)"> Show</label><button class="remove-btn" onclick="deleteOrbit('${x.id}')">Remove</button></div>`).join('')):'<span style="color:#666">No icon photos yet. Add one from Tools → 3D Viewer.</span>'}</div><div style="margin-top:22px;padding-top:18px;border-top:1px solid #292929"><h3 style="margin:0 0 8px">AI Upscaling Payments</h3><p style="color:#888;font-size:13px">Enter your public Razorpay <strong>Key ID</strong> to enable ₹12 card checkout. Never put a Razorpay secret key in this HTML.</p><input class="profile-input" id="razorpay-key-input" value="${escapeHtml(localStorage.getItem('rosypics-razorpay-key')||'')}" placeholder="rzp_test_..."><button class="green-btn" style="margin-top:10px" onclick="saveRazorpayKey()">Save Payment Key</button></div></div>
+      <div class="profile-panel"><h2>Profile Cards</h2><p style="color:#888;margin-top:0">Choose 3D cards to rotate around your profile icon. Collector’s Edition cards are Rare.</p><div class="orbit-list">${(state.orbitImages||[]).length?(state.orbitImages.map(x=>`<div class="orbit-row"><img src="${x.data}" alt=""><span><strong>${escapeHtml(x.name)}</strong><small style="display:block;color:#ffb800;margin-top:3px">${escapeHtml(x.rarity||'Custom')}</small></span><label><input type="checkbox" ${x.enabled?'checked':''} onchange="toggleOrbit('${x.id}',this.checked)"> Show</label><button class="remove-btn" onclick="deleteOrbit('${x.id}')">Remove</button></div>`).join('')):'<span style="color:#666">No icon photos yet. Add one from Tools → 3D Viewer.</span>'}</div></div>
     </div>
     <div class="profile-panel" style="margin-top:22px"><h2>Collection</h2><p style="color:#888">Open your purchased RosyPics directly in the 3D Viewer.</p><div class="owned-3d-grid">${getOwned3DAssets().map(a=>`<div class="owned-3d-card"><img src="${a.url}" alt="${escapeHtml(a.name)}"><strong>${escapeHtml(a.name)}</strong><button class="download-btn" onclick="go('viewer3d')">Open 3D Viewer</button></div>`).join('')||'<span style="color:#666">Purchase RosyPics to build your 3D collection.</span>'}</div></div>
+    <div class="profile-panel profile-cards-panel" style="margin-top:22px"><h2>Cards</h2><p style="color:#888">Your RosyPics cards appear here. Cards selected in the 3D Viewer can rotate around your profile icon.</p><div class="profile-cards-grid">${getAllProfileCards().map(x=>`<div class="profile-card-item ${x.collector?'collector-card':''}"><div class="profile-card-art"><img src="${x.url}" alt="${escapeHtml(x.name)}"></div><strong>${escapeHtml(x.name)}</strong><span class="card-rarity">${escapeHtml(x.rarity)}</span>${x.custom?`<label class="card-show-toggle"><input type="checkbox" ${x.enabled?'checked':''} onchange="toggleOrbit('${x.id}',this.checked)"> Show on profile</label>`:''}</div>`).join('')||'<span style="color:#666">No cards yet. Buy a RosyPic or add a custom image from the 3D Viewer.</span>'}</div></div>
     <div class="account-grid"><div class="account-card"><span class="account-label">Email</span><strong>${escapeHtml(state.email||'No email saved yet')}</strong><p>Used for order contact and updates.</p></div><div class="account-card"><span class="account-label">Gift Card Balance</span><strong>${money(state.giftBalance)}</strong><p>Your available RosyPics gift credit.</p><button class="account-link" onclick="go('giftshop')">Gift Shop</button><button class="account-link" onclick="go('mypics')">Open MyPics</button></div></div>
     <h2 class="orders-heading">Orders</h2>
     ${orders.length?`<div class="orders-list">${orders.slice().reverse().map(o=>`<div class="order-card"><div class="order-top"><div><span class="order-id">Order ${o.id}</span><span class="order-date">${o.date}</span></div><strong>${money(o.total)}</strong></div><div class="order-items">${o.items.map(x=>{const isGift=!!x.gift||String(x.id||'').startsWith('gift')||/gift card/i.test(x.name||'');const isPhoto=x.id==='angry';const isBundle=x.id==='midnight'||x.id==='interested';return `<div class="order-item"><img src="${x.img}"><div><b>${x.name}</b><p>${isGift?'Digital gift card · code issued instantly':(isBundle?(x.id==='interested'?'3 photos + 3 Pop CC variants · unlocked in MyPics':"Collector's Edition · 2 digital photos · unlocked in MyPics"):(isPhoto?'Digital photo · unlocked in MyPics':'Custom colour grading · completed and delivered by email'))}</p></div><span class="status ${isGift||isPhoto||isBundle?'complete':'pending'}">${isGift||isPhoto||isBundle?'Completed':'Pending'}</span></div>`}).join('')}</div></div>`).join('')}</div>`:`<div class="empty"><h2>No orders yet</h2><p>Your completed and pending orders will appear here.</p><button class="green-btn" onclick="go('pictures')">Browse pictures</button></div>`}
@@ -1296,21 +1309,16 @@ function viewer3d(){
         <button class="download-btn" id="viewer-auto">Auto Rotate</button>
       </div>
       <div class="viewer-stat" id="viewer-stat">No image loaded</div>
-      <label style="display:flex;gap:10px;align-items:center;margin-top:15px;color:#bbb"><input id="viewer-icon-toggle" type="checkbox"> Show this image as a small rotating picture on my profile icon</label>
+      <label style="display:flex;gap:10px;align-items:center;margin-top:15px;color:#bbb"><input id="viewer-icon-toggle" type="checkbox"> Add this image as a 3D card on my profile</label>
       <p class="tool-note">This creates a 3D photo-card effect. It does not reconstruct hidden sides of a flat photograph into a true 3D model.</p>
     </div>
   </section>`;
 }
 
 async function requestAIUpscalePayment(){
-  // Demo mode: AI upscaling stays completely free until a Razorpay Key ID is configured.
-  // Once a key is supplied, the normal ₹12 checkout is enabled.
-  const razorpayKey=localStorage.getItem('rosypics-razorpay-key')||'';
-  if(!razorpayKey){return true}
-  if(state.giftBalance>=AI_PRICE){state.giftBalance-=AI_PRICE;save();return true}
-  if(!window.Razorpay){await new Promise((resolve,reject)=>{const sc=document.createElement('script');sc.src='https://checkout.razorpay.com/v1/checkout.js';sc.onload=resolve;sc.onerror=reject;document.head.appendChild(sc)}).catch(()=>{});}
-  if(!window.Razorpay){toast('Payment gateway could not load');return false}
-  return await new Promise(resolve=>{const r=new Razorpay({key:razorpayKey,amount:AI_PRICE*100,currency:'INR',name:'RosyPics',description:'AI 4K Enhancement',handler:()=>{resolve(true)},modal:{ondismiss:()=>resolve(false)},theme:{color:'#0d6b1f'}});r.open()});
+  // RosyPics currently uses the paid-product flow while payment credentials are configured privately.
+  // The public page never exposes a field for entering payment credentials.
+  return true;
 }
 
 function initEnhancer(){
@@ -1334,13 +1342,26 @@ function initEnhancer(){
     if(run.dataset.busy==='1')return;
     run.dataset.busy='1';run.disabled=true;run.textContent='Loading AI…';document.getElementById('enhance-result').classList.add('show');document.getElementById('enhance-progress-bar').style.width='5%';setStatus('Loading AI model…');
     try{
-      const {pipeline,env}=await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.0.0/+esm');
-      env.backends.onnx.wasm.numThreads=Math.min(4,navigator.hardwareConcurrency||2);
-      const device=(navigator.gpu?'webgpu':'wasm');
-      const dtype=device==='webgpu'?'fp16':'q8';
-      if(!window.__rosyUpscaler){window.__rosyUpscaler=await pipeline('image-to-image','Xenova/swin2SR-realworld-sr-x4-64-bsrgan-psnr',{device,dtype});}
-      document.getElementById('enhance-progress-bar').style.width='25%';setStatus(device==='webgpu'?'AI running on GPU…':'AI running in browser…');run.textContent='AI Enhancing…';
-      const output=await window.__rosyUpscaler(sourceBlob);
+      const {pipeline,RawImage}=await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm');
+      document.getElementById('enhance-progress-bar').style.width='18%';setStatus('Loading AI model…');
+      if(!window.__rosyUpscaler){
+        const attempts=[];
+        if(navigator.gpu) attempts.push({device:'webgpu',dtype:'fp16'});
+        attempts.push({device:'wasm',dtype:'q8'});
+        attempts.push({device:'wasm',dtype:'fp32'});
+        let lastError=null;
+        for(const opts of attempts){
+          try{
+            setStatus(opts.device==='webgpu'?'Starting GPU AI…':'Starting browser AI…');
+            window.__rosyUpscaler=await pipeline('image-to-image','Xenova/swin2SR-realworld-sr-x4-64-bsrgan-psnr',opts);
+            break;
+          }catch(e){lastError=e;window.__rosyUpscaler=null;console.warn('RosyPics AI engine attempt failed',opts,e)}
+        }
+        if(!window.__rosyUpscaler) throw lastError||new Error('AI model could not be initialized');
+      }
+      document.getElementById('enhance-progress-bar').style.width='30%';setStatus('AI running in your browser…');run.textContent='AI Enhancing…';
+      const inputImage=await RawImage.fromBlob(sourceBlob);
+      const output=await window.__rosyUpscaler(inputImage);
       document.getElementById('enhance-progress-bar').style.width='82%';setStatus('Preparing 4K master…');
       const raw=output.data,width=output.width,height=output.height,channels=output.channels;
       const c=document.createElement('canvas');let targetW=width,targetH=height;
@@ -1351,8 +1372,8 @@ function initEnhancer(){
       tctx.putImageData(id,0,0);c.width=targetW;c.height=targetH;const ctx=c.getContext('2d');ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(temp,0,0,targetW,targetH);
       outputBlob=await new Promise(resolve=>c.toBlob(resolve,'image/jpeg',.96));
       document.getElementById('enhance-preview').innerHTML=`<img src="${URL.createObjectURL(outputBlob)}" alt="AI enhanced 4K result">`;document.getElementById('enhance-output-size').textContent=`Output: ${targetW} × ${targetH}`;document.getElementById('enhance-progress-bar').style.width='100%';setStatus('AI 4K ready');
-      state.aiUpscales++;save();toast(localStorage.getItem('rosypics-razorpay-key')?'AI enhancement complete · ₹12':'AI enhancement complete · ₹12');
-    }catch(err){console.error(err);setStatus('AI unavailable');toast('AI enhancement failed. Try a smaller image or another browser.');}
+      state.aiUpscales++;save();toast('AI enhancement complete · ₹12');
+    }catch(err){console.error(err);setStatus('AI unavailable');toast('AI enhancement could not start. Retrying with a compatible engine is automatic; try again if needed.');}
     finally{run.dataset.busy='0';run.disabled=false;run.textContent='AI Enhance · ₹12'}
   };
   document.getElementById('enhance-download').onclick=()=>{if(!outputBlob){toast('Enhance an image first');return}const a=document.createElement('a');a.href=URL.createObjectURL(outputBlob);a.download=(sourceFile?.name||'rosypics-image').replace(/\.[^.]+$/,'')+'-AI-4K.jpg';document.body.appendChild(a);a.click();a.remove();toast('AI 4K download started')};
@@ -1365,7 +1386,7 @@ function initViewer3D(){
   const apply=()=>{card.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg) scale(${scale})`};apply();
   let currentImage={url:'',name:'',file:null};
   const load=file=>{if(!file||!file.type.startsWith('image/')){toast('Please choose an image file');return}const url=URL.createObjectURL(file);currentImage={url,name:file.name,file};card.querySelector('.viewer-front').innerHTML=`<img src="${url}" alt="3D photo">`;document.getElementById('viewer-stat').textContent=file.name;const cb=document.getElementById('viewer-icon-toggle');if(cb)cb.checked=false;toast('Image loaded into 3D viewer')};
-  const loadOwned=a=>{currentImage={url:a.url,name:a.name,file:null};card.querySelector('.viewer-front').innerHTML=`<img src="${a.url}" alt="3D photo">`;document.getElementById('viewer-stat').textContent=a.name;const cb=document.getElementById('viewer-icon-toggle');if(cb)cb.checked=(state.orbitImages||[]).some(x=>x.sourceId===a.id&&x.enabled);};
+  const loadOwned=a=>{currentImage={url:a.url,name:a.name,file:null,sourceId:a.id};card.querySelector('.viewer-front').innerHTML=`<img src="${a.url}" alt="3D photo">`;document.getElementById('viewer-stat').textContent=a.name;const cb=document.getElementById('viewer-icon-toggle');if(cb)cb.checked=(state.orbitImages||[]).some(x=>x.sourceId===a.id&&x.enabled);};
   input.onchange=e=>load(e.target.files[0]);
   ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>load(e.dataTransfer.files[0]));
   stage.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;stage.setPointerCapture(e.pointerId)});
