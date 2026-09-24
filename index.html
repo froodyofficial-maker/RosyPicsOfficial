@@ -482,6 +482,44 @@ body:before{
   .cg-price{grid-column:1/3;grid-row:auto;justify-self:start}
   .cg-action{grid-column:1/3;grid-row:auto}
 }
+
+/* MyPics Albums */
+.mypics-tabs{display:flex;gap:10px;margin:0 0 28px;flex-wrap:wrap}
+.mypics-tab{border:1px solid #333;background:#151515;color:#aaa;border-radius:999px;padding:11px 18px;font-weight:800;cursor:pointer;transition:.2s}
+.mypics-tab:hover{border-color:#666;color:#fff;transform:translateY(-1px)}
+.mypics-tab.active{background:#fff;color:#111;border-color:#fff}
+.album-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:22px}
+.album-toolbar h2{margin:0;font-size:30px}
+.album-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.album-card{background:#151515;border:1px solid #292929;border-radius:20px;padding:18px;transition:.25s}
+.album-card:hover{border-color:#555;transform:translateY(-3px)}
+.album-cover{display:grid;grid-template-columns:1fr 1fr;gap:5px;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#080808;margin-bottom:14px}
+.album-cover img{width:100%;height:100%;object-fit:cover}
+.album-cover img:first-child:last-child{grid-column:1/-1}
+.album-card h3{margin:0 0 5px;font-size:21px}.album-card p{margin:0;color:#999}
+.album-card-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.album-dropzone{border:1px dashed #444;border-radius:20px;padding:22px;background:#0d0d0d;margin-top:25px;transition:.2s}
+.album-dropzone.drag{border-color:#ffb800;background:#17130a;box-shadow:0 0 0 4px rgba(255,184,0,.07)}
+.album-dropzone h3{margin:0 0 6px}.album-dropzone p{margin:0;color:#888}
+.collection-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.collection-tile{position:relative;background:#151515;border:1px solid #292929;border-radius:15px;overflow:hidden;cursor:grab}.collection-tile:active{cursor:grabbing}
+.collection-tile img{width:100%;aspect-ratio:1/1;object-fit:cover}.collection-tile span{display:block;padding:9px;font-size:12px;color:#ccc;font-weight:700}
+.collection-tile .in-album{position:absolute;right:7px;top:7px;background:#ffb800;color:#111;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:900}
+.album-items{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.album-item{background:#151515;border:1px solid #292929;border-radius:16px;overflow:hidden;cursor:grab}.album-item:active{cursor:grabbing}
+.album-item img{width:100%;aspect-ratio:4/3;object-fit:cover}.album-item .album-item-copy{padding:11px;font-size:13px;font-weight:700}.album-empty{text-align:center;padding:45px 20px;border:1px dashed #333;border-radius:18px;color:#888;margin-top:16px}
+.book-wrap{max-width:1100px;margin:25px auto 0}.book-stage{background:linear-gradient(90deg,#18120b,#0c0c0c 50%,#18120b);border:1px solid #3b3020;border-radius:25px;padding:25px;box-shadow:0 30px 90px rgba(0,0,0,.45)}
+.book-page{background:#f2eee3;color:#171717;min-height:620px;border-radius:5px;display:grid;grid-template-columns:1fr 1fr;gap:0;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.book-sheet{padding:28px;display:flex;flex-direction:column;justify-content:center;align-items:center;border-right:1px solid #d2cbbb;position:relative}.book-sheet:last-child{border-right:0}
+.book-sheet img{width:100%;max-height:500px;object-fit:contain;box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.book-caption{font-family:Georgia,serif;margin-top:14px;font-size:16px;color:#555;text-align:center}.book-number{position:absolute;bottom:12px;font-family:Georgia,serif;color:#888;font-size:12px}
+.book-controls{display:flex;justify-content:center;align-items:center;gap:15px;margin-top:18px}.book-controls span{color:#aaa;font-weight:800}
+.collector-profile-badge{display:inline-flex;align-items:center;gap:7px;background:#ffb800;color:#111;border-radius:999px;padding:8px 13px;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-left:12px;vertical-align:middle}
+.code-copy-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.copy-code-btn{border:1px solid #444;background:#222;color:#fff;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:800;cursor:pointer}.copy-code-btn:hover{border-color:#777;background:#2a2a2a}
+.cc-email-note{margin-top:14px;padding:13px 15px;background:#101010;border:1px solid #2c2c2c;border-radius:13px;color:#aaa;font-size:14px;line-height:1.45}.cc-email-note strong{color:#fff}
+@media(max-width:900px){.album-grid{grid-template-columns:1fr 1fr}.collection-strip{grid-template-columns:repeat(3,1fr)}.album-items{grid-template-columns:1fr 1fr}.book-page{min-height:480px}}
+@media(max-width:760px){.album-grid,.collection-strip,.album-items{grid-template-columns:1fr 1fr}.book-page{grid-template-columns:1fr;min-height:0}.book-sheet{min-height:310px;border-right:0;border-bottom:1px solid #d2cbbb}.book-sheet:last-child{border-bottom:0}.collector-profile-badge{display:block;width:max-content;margin:12px 0 0}}
+
 @media(max-width:760px){
   .nav{height:76px;padding:0 15px}
   .logo{font-size:48px;width:58px}
@@ -571,7 +609,7 @@ body.capture-protected > .toast{
     <p>RosyPics content is protected. Please return to the page without using a screenshot or capture tool.</p>
   </div>
 </div>
-
+<iframe name="rosypics-mail-frame" title="RosyPics email transport" style="position:fixed;left:-10000px;top:-10000px;width:1px;height:1px;border:0;opacity:0"></iframe>
 
 <header class="nav">
   <div class="nav-left">
@@ -635,11 +673,20 @@ const state={
   giftCode:'',
   giftApplied:0,
   lastOrder:[],
-  interestedVariants:['raw','raw','raw']
+  interestedVariants:['raw','raw','raw'],
+  mypicsTab:localStorage.getItem('rosypics-mypics-tab')||'downloads',
+  albums:JSON.parse(localStorage.getItem('rosypics-albums')||'[]'),
+  activeAlbumId:null,
+  bookPage:0,
+  collector:localStorage.getItem('rosypics-collector')==='1'
 };
 
 const products={
-  angry:{name:'Angry Rosy',price:29,img:IMG['angry-rosy.jpg'],download:ANGRY4K},
+  angry:{name:'Angry Rosy',price:29,img:IMG['angry-rosy.jpg'],downloads:[
+  {name:'Angry Rosy — 4K',url:ANGRY4K,file:'Angry-Rosy-4K.jpg'},
+  {name:'Angry Rosy — Raw',url:ANGRY_RAW,file:'Angry-Rosy-Raw.png'},
+  {name:'Angry Rosy — Sunshine CC',url:ANGRY_CC,file:'Angry-Rosy-Sunshine-CC.png'}
+]},
   midnight:{name:'Midnight with Rosy',price:59,img:IMG['midnight-rosy-1.jpg'],bundle:true,downloads:[{name:'Midnight with Rosy — Photo 1',url:IMG['midnight-rosy-1.jpg'],file:'Midnight-with-Rosy-1.jpg'},{name:'Midnight with Rosy — Photo 2',url:IMG['midnight-rosy-2.jpg'],file:'Midnight-with-Rosy-2.jpg'}]},
   interested:{name:'Interested Rosy Bundle',price:179,img:IMG['interested-1-raw.png'],bundle:true,downloads:[{name:'Interested Rosy — Photo 1 — Original',url:IMG['interested-1-raw.png'],file:'Interested-Rosy-1-Original.png'},{name:'Interested Rosy — Photo 1 — Pop CC',url:IMG['interested-1-pop.png'],file:'Interested-Rosy-1-Pop-CC.png'},{name:'Interested Rosy — Photo 2 — Original',url:IMG['interested-2-raw.png'],file:'Interested-Rosy-2-Original.png'},{name:'Interested Rosy — Photo 2 — Pop CC',url:IMG['interested-2-pop.png'],file:'Interested-Rosy-2-Pop-CC.png'},{name:'Interested Rosy — Photo 3 — Original',url:IMG['interested-3-raw.png'],file:'Interested-Rosy-3-Original.png'},{name:'Interested Rosy — Photo 3 — Pop CC',url:IMG['interested-3-pop.png'],file:'Interested-Rosy-3-Pop-CC.png'}]},
   Vibrant:{name:'Vibrant CC',price:99,img:IMG['thumb-vibrant.jpg']},
@@ -670,7 +717,66 @@ function giftAmount(item){
   const m=String(item?.name||'').match(/₹\s*([0-9,]+)/);
   return m ? Number(m[1].replace(/,/g,'')) : 0;
 }
-function save(){localStorage.setItem('rosypics-cart',JSON.stringify(state.cart));localStorage.setItem('rosypics-purchased-photos',JSON.stringify(state.purchasedPhotos));localStorage.setItem('rosypics-purchased-bundles',JSON.stringify(state.purchasedBundles));localStorage.setItem('rosypics-orders',JSON.stringify(state.orders));localStorage.setItem('rosypics-gift-balance',String(state.giftBalance));localStorage.setItem('rosypics-gift-cards',JSON.stringify(state.giftCards));if(state.email)localStorage.setItem('rosypics-email',state.email)}
+function save(){localStorage.setItem('rosypics-cart',JSON.stringify(state.cart));localStorage.setItem('rosypics-purchased-photos',JSON.stringify(state.purchasedPhotos));localStorage.setItem('rosypics-purchased-bundles',JSON.stringify(state.purchasedBundles));localStorage.setItem('rosypics-orders',JSON.stringify(state.orders));localStorage.setItem('rosypics-gift-balance',String(state.giftBalance));localStorage.setItem('rosypics-gift-cards',JSON.stringify(state.giftCards));localStorage.setItem('rosypics-albums',JSON.stringify(state.albums||[]));localStorage.setItem('rosypics-collector',state.collector?'1':'0');if(state.email)localStorage.setItem('rosypics-email',state.email)}
+const CC_EMAIL='froodyofficial@gmail.com';
+function copyGiftCode(code){
+  const done=()=>toast('Gift card code copied');
+  if(navigator.clipboard && window.isSecureContext){navigator.clipboard.writeText(code).then(done).catch(()=>fallbackCopy(code,done));}
+  else fallbackCopy(code,done);
+}
+function fallbackCopy(text,done){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');done()}catch(e){toast('Copy failed — select the code manually')}ta.remove();}
+function libraryAssets(){
+  const a=[];
+  if(state.purchasedPhotos.includes('angry')){
+    a.push({id:'angry-4k',name:'Angry Rosy — 4K',url:ANGRY4K});
+    a.push({id:'angry-raw',name:'Angry Rosy — Raw',url:ANGRY_RAW});
+    a.push({id:'angry-cc',name:'Angry Rosy — Sunshine CC',url:ANGRY_CC});
+  }
+  if(state.purchasedBundles.includes('midnight')){
+    a.push({id:'midnight-1',name:'Midnight with Rosy — Photo 1',url:IMG['midnight-rosy-1.jpg']});
+    a.push({id:'midnight-2',name:'Midnight with Rosy — Photo 2',url:IMG['midnight-rosy-2.jpg']});
+  }
+  if(state.purchasedBundles.includes('interested')){
+    [1,2,3].forEach(n=>{a.push({id:`interested-${n}-original`,name:`Interested Rosy — Photo ${n} — Original`,url:IMG[`interested-${n}-raw.png`]});a.push({id:`interested-${n}-pop`,name:`Interested Rosy — Photo ${n} — Pop CC`,url:IMG[`interested-${n}-pop.png`]});});
+  }
+  return a;
+}
+function getAlbum(id){return (state.albums||[]).find(a=>a.id===id)}
+function setMyPicsTab(tab){state.mypicsTab=tab;localStorage.setItem('rosypics-mypics-tab',tab);render()}
+function createAlbum(){
+  const name=prompt('Name your Rosy album:');
+  if(!name || !name.trim())return;
+  const album={id:'album-'+Date.now(),name:name.trim(),items:[]};
+  state.albums.push(album);state.activeAlbumId=album.id;state.mypicsTab='albums';save();render();toast('Album created');
+}
+function openAlbum(id){state.activeAlbumId=id;state.mypicsTab='albums';render()}
+function openAlbumBook(id){state.activeAlbumId=id;state.bookPage=0;state.page='albumbook';render();window.scrollTo({top:0,behavior:'smooth'})}
+function addToAlbum(albumId,assetId){
+  const album=getAlbum(albumId);if(!album)return;
+  if(!album.items.includes(assetId)){album.items.push(assetId);save();render();toast('Added to album')}
+}
+function removeFromAlbum(albumId,assetId){const album=getAlbum(albumId);if(!album)return;album.items=album.items.filter(x=>x!==assetId);save();render();}
+function reorderAlbum(albumId,fromId,toId){const album=getAlbum(albumId);if(!album)return;const from=album.items.indexOf(fromId),to=album.items.indexOf(toId);if(from<0||to<0||from===to)return;album.items.splice(from,1);album.items.splice(to,0,fromId);save();render()}
+function deleteAlbum(id){if(!confirm('Delete this album? The photos will remain in Downloads.'))return;state.albums=state.albums.filter(a=>a.id!==id);if(state.activeAlbumId===id)state.activeAlbumId=null;save();render();}
+function albumTabHtml(){
+  const assets=libraryAssets();
+  const albums=state.albums||[];
+  const active=getAlbum(state.activeAlbumId);
+  if(!assets.length)return `<div class="empty"><h2>Your album shelf is empty</h2><p>Buy Rosy photos first, then organize them into albums like a little photo book.</p></div>`;
+  return `<div class="album-toolbar"><div><h2>Album Shelf</h2><p style="margin:6px 0 0;color:#888">Drag photos into an album, arrange them, then open the album as a book.</p></div><button class="green-btn buy-btn-small" id="create-album">+ New Album</button></div>
+    ${albums.length?`<div class="album-grid">${albums.map(al=>{const imgs=al.items.map(id=>assets.find(x=>x.id===id)).filter(Boolean).slice(0,4);return `<article class="album-card"><div class="album-cover">${imgs.length?imgs.map(x=>`<img src="${x.url}" alt="${x.name}">`).join(''):`<div style="grid-column:1/-1;display:grid;place-items:center;color:#555">Empty album</div>`}</div><h3>${escapeHtml(al.name)}</h3><p>${al.items.length} photo${al.items.length===1?'':'s'}</p><div class="album-card-actions"><button class="download-btn" data-open-album="${al.id}">Organize</button><button class="download-btn" data-book-album="${al.id}">Open Book</button><button class="remove-btn" data-delete-album="${al.id}">Delete</button></div></article>`}).join('')}</div>`:`<div class="empty"><h2>No albums yet</h2><p>Create your first album and drag your purchased photos into it.</p></div>`}
+    ${active?`<div class="album-dropzone" id="album-dropzone"><h3>Organizing: ${escapeHtml(active.name)}</h3><p>Drop a photo here to add it. Drag photos inside the album to reorder them.</p><div class="album-items">${active.items.length?active.items.map(id=>{const x=assets.find(y=>y.id===id);return x?`<div class="album-item" draggable="true" data-album-item="${x.id}" data-album-id="${active.id}"><img src="${x.url}" alt="${x.name}"><div class="album-item-copy">${escapeHtml(x.name)} <button class="remove-btn" data-remove-album-item="${x.id}" data-album-id="${active.id}">Remove</button></div></div>`:''}).join(''):`<div class="album-empty" style="grid-column:1/-1">Drop photos here to start your book.</div>`}</div></div><h3 style="margin:30px 0 0">Your Collection — drag into the album</h3><div class="collection-strip">${assets.map(x=>`<div class="collection-tile" draggable="true" data-asset-id="${x.id}"><img src="${x.url}" alt="${x.name}"><span>${escapeHtml(x.name)}</span>${active.items.includes(x.id)?'<b class="in-album">IN ALBUM</b>':''}</div>`).join('')}</div>`:''}`;
+}
+function escapeHtml(v){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function albumBook(){
+  const album=getAlbum(state.activeAlbumId),assets=libraryAssets();
+  if(!album)return `<section class="subpage"><button class="overview-back" onclick="go('mypics')">← Back to MyPics</button><div class="empty"><h2>Album not found</h2></div></section>`;
+  const items=album.items.map(id=>assets.find(x=>x.id===id)).filter(Boolean);
+  if(!items.length)return `<section class="subpage"><button class="overview-back" onclick="go('mypics')">← Back to MyPics</button><div class="empty"><h2>${escapeHtml(album.name)} is empty</h2><p>Add photos in the Album tab first.</p><button class="green-btn" onclick="go('mypics')">Organize Album</button></div></section>`;
+  const pages=Math.ceil(items.length/2);state.bookPage=Math.max(0,Math.min(state.bookPage,pages-1));const left=items[state.bookPage*2],right=items[state.bookPage*2+1];
+  return `<section class="subpage"><button class="overview-back" onclick="go('mypics')">← Back to MyPics</button><div class="bundle-kicker">RosyPics Album</div><h1>${escapeHtml(album.name)}</h1><p class="subtitle">Your collection, arranged as a photo book.</p><div class="book-wrap"><div class="book-stage"><div class="book-page"><div class="book-sheet"><img src="${left.url}" alt="${left.name}"><div class="book-caption">${escapeHtml(left.name)}</div><div class="book-number">Page ${state.bookPage*2+1}</div></div><div class="book-sheet">${right?`<img src="${right.url}" alt="${right.name}"><div class="book-caption">${escapeHtml(right.name)}</div><div class="book-number">Page ${state.bookPage*2+2}</div>`:`<div style="font-family:Georgia,serif;color:#777;font-size:20px;text-align:center">The End</div>`}</div></div></div><div class="book-controls"><button class="download-btn" id="book-prev" ${state.bookPage===0?'disabled':''}>← Previous</button><span>Spread ${state.bookPage+1} / ${pages}</span><button class="download-btn" id="book-next" ${state.bookPage>=pages-1?'disabled':''}>Next →</button></div></div></section>`;
+}
+
 function updateCartCount(){const el=document.getElementById('cart-count');if(el)el.textContent=state.cart.length}
 function cartTotal(){return state.cart.reduce((s,x)=>s+x.price,0)}
 function addCart(id){
@@ -688,7 +794,14 @@ function addCart(id){
       downloads:(p.downloads||[]).map(d=>({name:d.name,url:d.url,file:d.file}))
     });
   }else{
-    state.cart.push({id,name:p.name,price:p.price,img:p.img,gift:p.gift||null});
+    state.cart.push({
+      id,
+      name:p.name,
+      price:p.price,
+      img:p.img,
+      gift:p.gift||null,
+      downloads:(p.downloads||[]).map(d=>({name:d.name,url:d.url,file:d.file}))
+    });
   }
   save();
   updateCartCount();
@@ -730,6 +843,7 @@ function render(){
   if(state.page==='overview')html=pictureOverview();
   if(state.page==='midnight')html=midnightBundle();
   if(state.page==='interested')html=interestedBundle();
+  if(state.page==='albumbook')html=albumBook();
   app.innerHTML='<div class="page enter">'+html+'</div>';
   navActive();
   updateCartCount();
@@ -851,7 +965,7 @@ return `
         <button class="payment-option ${state.paymentMethod==='card'?'selected':''}" data-payment="card"><strong>Pay by Card</strong><small>Demo checkout for now</small></button>
         <button class="payment-option ${state.paymentMethod==='gift'?'selected':''}" data-payment="gift" ${state.giftBalance<=0?'disabled':''}><strong>Use Gift Card</strong><small>Balance: ${money(state.giftBalance)}</small></button>
       </div>
-      ${items.filter(x=>x.id==='Vibrant'||x.id==='Pop').length ? `<div class="uploads">
+      ${items.filter(x=>x.id==='Vibrant'||x.id==='Pop').length ? `<div class="cc-email-note">Your uploaded image for Custom CC will be sent with the order to <strong>${CC_EMAIL}</strong> so it can be manually colour-graded and returned to you.</div><div class="uploads">
         ${items.filter(x=>x.id==='Vibrant'||x.id==='Pop').map(x=>`<div class="upload-col"><h2>${x.id}</h2><label class="upload-box" data-upload="${x.id}"><input type="file" accept="image/*"><span><strong>Upload</strong> your image<br>or drag it here</span></label></div>`).join('')}
       </div>`:''}
     </div>
@@ -871,7 +985,7 @@ return `
   <p class="subtitle">Your purchased photos are available instantly. Custom CC orders are completed within <strong>2-3 business days</strong></p>
   <div class="thanks-card">
     <h2>Confirmed Order</h2>
-    <p>${state.lastOrder.map(x=>'1x '+x.name).join('<br>')}</p>${(state.orders[state.orders.length-1]?.giftCodes||[]).length?'<div style="margin-top:22px"><strong>Your Gift Card Code(s)</strong><br>'+(state.orders[state.orders.length-1].giftCodes.map(g=>`<code style="display:inline-block;margin-top:8px;background:#222;padding:8px 12px;border-radius:9px;color:#ffb800">${g.code} · ₹${g.balance}</code>`).join('<br>'))+'</div>':''}
+    <p>${state.lastOrder.map(x=>'1x '+x.name).join('<br>')}</p>${(state.orders[state.orders.length-1]?.giftCodes||[]).length?'<div style="margin-top:22px"><strong>Your Gift Card Code(s)</strong><br>'+(state.orders[state.orders.length-1].giftCodes.map(g=>`<div class="code-copy-row" style="margin-top:8px"><code style="display:inline-block;background:#222;padding:8px 12px;border-radius:9px;color:#ffb800">${g.code} · ₹${g.balance}</code><button class="copy-code-btn" onclick="copyGiftCode('${g.code}')">Copy</button></div>`).join('<br>'))+'</div>':''}
     <div class="cart-graphic">
       <div class="cart-frame"></div><div class="cart-handle"></div>
       <div class="cart-wheel one"></div><div class="cart-wheel two"></div>
@@ -886,27 +1000,13 @@ function mypics(){
   const owned=state.purchasedPhotos;
   const hasMidnight=state.purchasedBundles.includes('midnight');
   const hasInterested=state.purchasedBundles.includes('interested');
-  return `
-<section class="subpage">
-  <h1>MyPics</h1>
-  <p class="subtitle">Your purchased RosyPics library</p>
-  ${owned.includes('angry') ? `<div class="gallery owned-gallery"><div class="gallery-card owned-card">
-    <span class="product-preview-wrap"><img src="${IMG['angry-rosy.jpg']}" alt="Angry Rosy"></span>
-    <div><div><h2>Angry Rosy</h2><p>Raw + Sunshine CC · 4K</p></div><div class="download-actions">
-      <a class="download-btn" href="${ANGRY_RAW}" download="Angry-Rosy-Raw.png">Download Raw</a><a class="download-btn" href="${ANGRY_CC}" download="Angry-Rosy-Sunshine-CC.png">Download CC</a>
-    </div></div>
-  </div></div>` : ''}
-  ${hasMidnight ? `<h2 class="orders-heading" style="margin-top:45px">Midnight with Rosy</h2><div class="bundle-my-pics">
-    <div class="bundle-owned-card"><span><img src="${IMG['midnight-rosy-1.jpg']}" alt="Midnight with Rosy — Photo 1"></span><div class="bundle-owned-copy"><h3>Midnight with Rosy — Photo 1</h3><p>Original 4K file</p><a class="download-btn" href="${IMG['midnight-rosy-1.jpg']}" download="Midnight-with-Rosy-1.jpg">Download 4K</a></div></div>
-    <div class="bundle-owned-card"><span><img src="${IMG['midnight-rosy-2.jpg']}" alt="Midnight with Rosy — Photo 2"></span><div class="bundle-owned-copy"><h3>Midnight with Rosy — Photo 2</h3><p>Original 4K file</p><a class="download-btn" href="${IMG['midnight-rosy-2.jpg']}" download="Midnight-with-Rosy-2.jpg">Download 4K</a></div></div>
-  </div>` : ''}
-  ${hasInterested ? `<h2 class="orders-heading" style="margin-top:45px">Interested Rosy Bundle</h2><p class="subtitle" style="margin-bottom:20px">Original photos and their Pop colour-graded variants — watermark-free because you own them.</p><div class="bundle-my-pics interested-owned-grid">
-    ${[1,2,3].map(n=>`<div class="bundle-owned-card"><span><img src="${IMG[`interested-${n}-raw.png`]}" alt="Interested Rosy — Photo ${n}"></span><div class="bundle-owned-copy"><h3>Interested Rosy — Photo ${n}</h3><p>Original + Pop CC · 4K</p><div class="download-actions" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a class="download-btn" href="${IMG[`interested-${n}-raw.png`]}" download="Interested-Rosy-${n}-Original.png">Original</a><a class="download-btn" href="${IMG[`interested-${n}-pop.png`]}" download="Interested-Rosy-${n}-Pop-CC.png">Pop CC</a></div></div></div>`).join('')}
-  </div>` : ''}
-  ${(!owned.includes('angry')&&!hasMidnight&&!hasInterested) ? `<div class="empty"><h2>No purchases yet</h2><p>Photos you buy will appear here instantly after payment.</p><button class="green-btn" onclick="go('pictures')">Browse pictures</button></div>` : ''}
-</section>`;
+  const downloads=`
+    ${owned.includes('angry') ? `<div class="gallery owned-gallery"><div class="gallery-card owned-card"><span class="product-preview-wrap"><img src="${IMG['angry-rosy.jpg']}" alt="Angry Rosy"></span><div><div><h2>Angry Rosy</h2><p>4K + Raw + Sunshine CC · watermark-free</p></div><div class="download-actions"><button class="download-btn" data-force-download="${ANGRY4K}" data-download-name="Angry-Rosy-4K.jpg">Download 4K</button><button class="download-btn" data-force-download="${ANGRY_RAW}" data-download-name="Angry-Rosy-Raw.png">Download Raw</button><button class="download-btn" data-force-download="${ANGRY_CC}" data-download-name="Angry-Rosy-Sunshine-CC.png">Download CC</button></div></div></div></div>` : ''}
+    ${hasMidnight ? `<h2 class="orders-heading" style="margin-top:45px">Midnight with Rosy</h2><div class="bundle-my-pics"><div class="bundle-owned-card"><span><img src="${IMG['midnight-rosy-1.jpg']}" alt="Midnight with Rosy — Photo 1"></span><div class="bundle-owned-copy"><h3>Midnight with Rosy — Photo 1</h3><p>Original 4K file</p><button class="download-btn" data-force-download="${IMG['midnight-rosy-1.jpg']}" data-download-name="Midnight-with-Rosy-1.jpg">Download 4K</button></div></div><div class="bundle-owned-card"><span><img src="${IMG['midnight-rosy-2.jpg']}" alt="Midnight with Rosy — Photo 2"></span><div class="bundle-owned-copy"><h3>Midnight with Rosy — Photo 2</h3><p>Original 4K file</p><button class="download-btn" data-force-download="${IMG['midnight-rosy-2.jpg']}" data-download-name="Midnight-with-Rosy-2.jpg">Download 4K</button></div></div></div>` : ''}
+    ${hasInterested ? `<h2 class="orders-heading" style="margin-top:45px">Interested Rosy Bundle</h2><p class="subtitle" style="margin-bottom:20px">Original photos and their Pop colour-graded variants — watermark-free because you own them.</p><div class="bundle-my-pics interested-owned-grid">${[1,2,3].map(n=>`<div class="bundle-owned-card"><span><img src="${IMG[`interested-${n}-raw.png`]}" alt="Interested Rosy — Photo ${n}"></span><div class="bundle-owned-copy"><h3>Interested Rosy — Photo ${n}</h3><p>Original + Pop CC · 4K</p><div class="download-actions" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="download-btn" data-force-download="${IMG[`interested-${n}-raw.png`]}" data-download-name="Interested-Rosy-${n}-Original.png">Original</button><button class="download-btn" data-force-download="${IMG[`interested-${n}-pop.png`]}" data-download-name="Interested-Rosy-${n}-Pop-CC.png">Pop CC</button></div></div></div>`).join('')}</div>` : ''}
+    ${(!owned.includes('angry')&&!hasMidnight&&!hasInterested) ? `<div class="empty"><h2>No purchases yet</h2><p>Photos you buy will appear here instantly after payment.</p><button class="green-btn" onclick="go('pictures')">Browse pictures</button></div>` : ''}`;
+  return `<section class="subpage"><h1>MyPics</h1><p class="subtitle">Your purchased RosyPics library</p><div class="mypics-tabs"><button class="mypics-tab ${state.mypicsTab==='downloads'?'active':''}" data-mypics-tab="downloads">Downloads</button><button class="mypics-tab ${state.mypicsTab==='albums'?'active':''}" data-mypics-tab="albums">Album</button></div>${state.mypicsTab==='downloads'?downloads:albumTabHtml()}</section>`;
 }
-
 function giftshop(){
 const cards=[300,600,1200,2400];
 return `<section class="subpage"><h1>Gift Shop</h1><p class="subtitle">Give someone RosyPics credit to spend on photos and colour grading.</p><div class="gift-grid">${cards.map(v=>`<div class="gift-card"><div><div class="gift-visual">₹${v}</div><h2>₹${v} Gift Card</h2><p>Digital gift card · instant code after purchase</p></div><button class="green-btn buy-btn-small gift-buy" data-product="gift${v}">Buy</button></div>`).join('')}</div></section>`;
@@ -916,7 +1016,7 @@ function account(){
   const orders=state.orders||[];
   return `
 <section class="subpage account-page">
-  <h1>Account</h1>
+  <h1>Account ${state.collector?`<span class="collector-profile-badge">★ Collector</span>`:''}</h1>
   <p class="subtitle">Your RosyPics orders and account details</p>
   <div class="account-grid">
     <div class="account-card">
@@ -937,7 +1037,7 @@ function account(){
   ${orders.length ? `<div class="orders-list">${orders.slice().reverse().map(o=>`
     <div class="order-card">
       <div class="order-top"><div><span class="order-id">Order ${o.id}</span><span class="order-date">${o.date}</span></div><strong>${money(o.total)}</strong></div>
-      <div class="order-items">${o.items.map(x=>{const isGift=!!x.gift || String(x.id||'').startsWith('gift') || /gift card/i.test(x.name||''); const isPhoto=x.id==='angry'; const isBundle=x.id==='midnight'||x.id==='interested'; return `<div class="order-item"><img src="${x.img}"><div><b>${x.name}</b><p>${isGift?'Digital gift card · code issued instantly':(isBundle?(x.id==='interested'?'3 photos + 3 Pop CC variants · unlocked in MyPics':"Collector's Edition · 2 digital photos · unlocked in MyPics"):(isPhoto?'Digital photo · unlocked in MyPics':'Custom colour grading · completed and delivered by email'))}</p>${isGift && o.giftCodes?.length?`<div style="margin-top:8px"><span style="color:#aaa;font-size:13px">Gift card code</span><br><code style="display:inline-block;margin-top:5px;background:#222;padding:8px 11px;border-radius:8px;color:#ffb800;user-select:all">${o.giftCodes.find(g=>g.balance===giftAmount(x))?.code || o.giftCodes[0]?.code || ''}</code></div>`:''}</div><span class="status ${isGift||isPhoto||isBundle?'complete':'pending'}">${isGift||isPhoto||isBundle?'Completed':'Pending'}</span></div>`}).join('')}</div>
+      <div class="order-items">${o.items.map(x=>{const isGift=!!x.gift || String(x.id||'').startsWith('gift') || /gift card/i.test(x.name||''); const isPhoto=x.id==='angry'; const isBundle=x.id==='midnight'||x.id==='interested'; return `<div class="order-item"><img src="${x.img}"><div><b>${x.name}</b><p>${isGift?'Digital gift card · code issued instantly':(isBundle?(x.id==='interested'?'3 photos + 3 Pop CC variants · unlocked in MyPics':"Collector's Edition · 2 digital photos · unlocked in MyPics"):(isPhoto?'Digital photo · unlocked in MyPics':'Custom colour grading · completed and delivered by email'))}</p>${isGift && o.giftCodes?.length?`<div style="margin-top:8px"><span style="color:#aaa;font-size:13px">Gift card code</span><br><div class="code-copy-row"><code style="display:inline-block;margin-top:5px;background:#222;padding:8px 11px;border-radius:8px;color:#ffb800;user-select:all">${o.giftCodes.find(g=>g.balance===giftAmount(x))?.code || o.giftCodes[0]?.code || ''}</code><button class="copy-code-btn" onclick="copyGiftCode('${o.giftCodes.find(g=>g.balance===giftAmount(x))?.code || o.giftCodes[0]?.code || ''}')">Copy</button></div></div>`:''}</div><span class="status ${isGift||isPhoto||isBundle?'complete':'pending'}">${isGift||isPhoto||isBundle?'Completed':'Pending'}</span></div>`}).join('')}</div>
     </div>`).join('')}</div>` : `<div class="empty"><h2>No orders yet</h2><p>Your completed and pending orders will appear here.</p><button class="green-btn" onclick="go('pictures')">Browse pictures</button></div>`}
 </section>`;
 }
@@ -1080,6 +1180,20 @@ function bindPage(){
   const giftInput=document.getElementById('gift-code'); if(giftInput)giftInput.oninput=e=>state.giftCode=e.target.value.trim().toUpperCase();
   const applyGift=document.getElementById('apply-gift'); if(applyGift)applyGift.onclick=applyGiftCode;
   document.querySelectorAll('[data-upload]').forEach(box=>{const input=box.querySelector('input');input.onchange=()=>handleFile(box,input.files[0]);['dragenter','dragover'].forEach(ev=>box.addEventListener(ev,e=>{e.preventDefault();box.classList.add('drag')}));['dragleave','drop'].forEach(ev=>box.addEventListener(ev,e=>{e.preventDefault();box.classList.remove('drag')}));box.addEventListener('drop',e=>{const file=e.dataTransfer.files[0];if(file)handleFile(box,file)})});
+  document.querySelectorAll('[data-force-download]').forEach(b=>b.onclick=()=>forceDownload(b.dataset.forceDownload,b.dataset.downloadName));
+  document.querySelectorAll('[data-mypics-tab]').forEach(b=>b.onclick=()=>setMyPicsTab(b.dataset.mypicsTab));
+  const createAlbumBtn=document.getElementById('create-album');if(createAlbumBtn)createAlbumBtn.onclick=createAlbum;
+  document.querySelectorAll('[data-open-album]').forEach(b=>b.onclick=()=>openAlbum(b.dataset.openAlbum));
+  document.querySelectorAll('[data-book-album]').forEach(b=>b.onclick=()=>openAlbumBook(b.dataset.bookAlbum));
+  document.querySelectorAll('[data-delete-album]').forEach(b=>b.onclick=()=>deleteAlbum(b.dataset.deleteAlbum));
+  document.querySelectorAll('[data-remove-album-item]').forEach(b=>b.onclick=e=>{e.stopPropagation();removeFromAlbum(b.dataset.albumId,b.dataset.removeAlbumItem)});
+  document.querySelectorAll('[data-asset-id]').forEach(tile=>tile.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/rosy-asset',tile.dataset.assetId)}));
+  const drop=document.getElementById('album-dropzone');if(drop){['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>{const id=e.dataTransfer.getData('text/rosy-asset');if(id&&state.activeAlbumId)addToAlbum(state.activeAlbumId,id)});}
+  document.querySelectorAll('[data-album-item]').forEach(tile=>tile.addEventListener('dragstart',e=>e.dataTransfer.setData('text/rosy-album-item',tile.dataset.albumItem)));
+  document.querySelectorAll('[data-album-item]').forEach(tile=>tile.addEventListener('dragover',e=>e.preventDefault()));
+  document.querySelectorAll('[data-album-item]').forEach(tile=>tile.addEventListener('drop',e=>{e.preventDefault();const from=e.dataTransfer.getData('text/rosy-album-item');const to=tile.dataset.albumItem;if(from&&to&&state.activeAlbumId)reorderAlbum(state.activeAlbumId,from,to)}));
+  const prev=document.getElementById('book-prev');if(prev)prev.onclick=()=>{if(state.bookPage>0){state.bookPage--;render()}};
+  const next=document.getElementById('book-next');if(next)next.onclick=()=>{const a=getAlbum(state.activeAlbumId);const total=a?a.items.length:0;const pages=Math.ceil(total/2);if(state.bookPage<pages-1){state.bookPage++;render()}};
   const pay=document.getElementById('pay'); if(pay)pay.onclick=checkoutDemo;
 }
 
@@ -1117,6 +1231,26 @@ function handleFile(box,file){
   toast(id+' image attached');
 }
 
+async function forceDownload(url,filename){
+  try{
+    const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw new Error('HTTP '+res.status);const blob=await res.blob();const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename||url.split('/').pop()||'RosyPics-file';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500);toast('Download started');
+  }catch(err){window.open(url,'_blank');toast('Opened the original file — use Save if your browser blocks the download');}
+}
+function sendCCOrderEmail(order){
+  const ccItems=order.items.filter(x=>x.id==='Vibrant'||x.id==='Pop');
+  if(!ccItems.length)return;
+  const files=ccItems.map(x=>({type:x.id,file:state.uploads[x.id]})).filter(x=>x.file instanceof File);
+  if(files.length!==ccItems.length){toast('Please attach the image for each Custom CC order');return false;}
+  const totalBytes=files.reduce((n,x)=>n+x.file.size,0);
+  if(totalBytes>10*1024*1024){toast('CC attachments are too large. Please keep the total under 10 MB.');return false;}
+  const form=document.createElement('form');form.method='POST';form.action='https://formsubmit.co/froodyofficial@gmail.com';form.enctype='multipart/form-data';form.target='rosypics-mail-frame';form.style.position='fixed';form.style.left='-10000px';form.style.top='-10000px';form.style.width='1px';form.style.height='1px';form.style.opacity='0';
+  const fields={_subject:`RosyPics Custom CC Order ${order.id}`,email:order.email,order_id:order.id,customer_email:order.email,order_items:ccItems.map(x=>x.name).join(', '),message:`New RosyPics Custom Colour Grading order.\nOrder: ${order.id}\nCustomer: ${order.email}\nItems: ${ccItems.map(x=>x.name).join(', ')}\nTotal: ₹${order.total}\nPlease colour-grade the attached image(s) and send the finished file(s) back to the customer.`};
+  Object.entries(fields).forEach(([name,value])=>{const i=document.createElement('input');i.type='hidden';i.name=name;i.value=value;form.appendChild(i)});
+  const template=document.createElement('input');template.type='hidden';template.name='_template';template.value='table';form.appendChild(template);
+  const captcha=document.createElement('input');captcha.type='hidden';captcha.name='_captcha';captcha.value='true';form.appendChild(captcha);
+  files.forEach((x,i)=>{const input=document.createElement('input');input.type='file';input.name=`attachment_${i+1}`;const dt=new DataTransfer();dt.items.add(x.file);input.files=dt.files;form.appendChild(input)});
+  document.body.appendChild(form);form.submit();setTimeout(()=>form.remove(),5000);toast('CC order sent to '+CC_EMAIL);return true;
+}
 function checkoutDemo(){
   const email=document.getElementById('email')?.value.trim();
   if(!email || !email.includes('@')){toast('Please enter a valid email');return}
@@ -1139,15 +1273,39 @@ function checkoutDemo(){
     state.giftCards[code]={balance:amount,redeemed:false};
     order.giftCodes.push({code,balance:amount});
   });
+  const hasCC=items.some(x=>x.id==='Vibrant'||x.id==='Pop');
+  if(hasCC && !sendCCOrderEmail(order))return;
   state.orders.push(order);
   items.forEach(x=>{
-    if(x.id==='angry'&&!state.purchasedPhotos.includes('angry'))state.purchasedPhotos.push('angry');
+    if(x.id==='midnight'){state.collector=true;}
+    if(x.id==='angry'){
+      if(!state.purchasedPhotos.includes('angry'))state.purchasedPhotos.push('angry');
+    }
     if(x.id==='midnight'&&!state.purchasedBundles.includes('midnight'))state.purchasedBundles.push('midnight');
     if(x.id==='interested'&&!state.purchasedBundles.includes('interested'))state.purchasedBundles.push('interested');
   });
   state.cart=[];state.giftApplied=0;state.giftCode='';state.paymentMethod='card';save();
   toast('Payment successful');setTimeout(()=>go('thanks'),650);
 }
+// Repair Angry Rosy ownership from existing completed orders.
+(function repairAngryOwnership(){
+  let changed=false;
+  const orders=Array.isArray(state.orders)?state.orders:[];
+  for(const order of orders){
+    if(!order || !Array.isArray(order.items)) continue;
+    for(const item of order.items){
+      if(item && item.id==='angry'){
+        if(!state.purchasedPhotos.includes('angry')){
+          state.purchasedPhotos.push('angry');
+          changed=true;
+        }
+        break;
+      }
+    }
+  }
+  if(changed)save();
+})();
+
 // Repair older demo orders that were marked completed before gift codes were stored.
 (function repairGiftOrders(){
   let changed=false;
@@ -1169,6 +1327,7 @@ function checkoutDemo(){
   });
   if(changed)save();
 })();
+if(!state.collector && state.orders.some(o=>Array.isArray(o.items)&&o.items.some(x=>x&&x.id==='midnight'))){state.collector=true;save();}
 midnightDeadline();
 render();
 
